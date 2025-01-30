@@ -58,11 +58,13 @@ class ClinicalayudanteApplication(Adw.Application):
         about = Adw.AboutDialog(application_name='clinicalayudante',
                                 application_icon='io.github.CA',
                                 developer_name='Taylan Branco Meurer',
-                                version='0.1.0',
-                                developers=['Taylan Branco Meurer'],
+                                version='1.1.25',
+                                website = 'https://taylan.pythonanywhere.com/',
+                                issue_url='https://forms.gle/1eHoJy59dJfaf4qa8',
                                 copyright='© 2025 Taylan Branco Meurer')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_('translator-credits'))
+        about.add_credit_section("Orientadores médicos", ['Dra. Lorena Djament'])
         about.present(self.props.active_window)
 
     def on_preferences_action(self, widget, _):

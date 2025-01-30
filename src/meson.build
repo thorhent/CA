@@ -30,6 +30,8 @@ clinicalayudante_sources = [
   '__init__.py',
   'main.py',
   'window.py',
+  'conectar.py',
+  'CAsqlite.db',
 ]
 
 install_data(clinicalayudante_sources, install_dir: moduledir)
