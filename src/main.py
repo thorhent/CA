@@ -50,10 +50,10 @@ class ClinicalayudanteApplication(Adw.Application):
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='clinicalayudante',
+        about = Adw.AboutDialog(application_name='Clinical Ayudante',
                                 application_icon='com.github.thorhent.CA',
                                 developer_name='Taylan Branco Meurer',
-                                version='0.1.0',
+                                version='1.8.25',
                                 developers=['Taylan Branco Meurer'],
                                 copyright='© 2025 Taylan Branco Meurer')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
