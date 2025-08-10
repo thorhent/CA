@@ -24,6 +24,7 @@ gi.require_version('Adw', '1')
 
 from gi.repository import Gtk, Gio, Adw
 from .window import ClinicalayudanteWindow
+from .preferences import PreferencesWindow
 
 
 class ClinicalayudanteApplication(Adw.Application):
@@ -62,8 +63,15 @@ class ClinicalayudanteApplication(Adw.Application):
         about.present(self.props.active_window)
 
     def on_preferences_action(self, widget, _):
-        """Callback for the app.preferences action."""
-        print('app.preferences action activated')
+        if not hasattr(self, 'prefs_win') or self.prefs_win is None:
+            self.prefs_win = PreferencesWindow()
+            self.prefs_win.connect("close-request", self.on_prefs_closed)
+    
+        self.prefs_win.present()
+    
+    def on_prefs_closed(self, window):
+        self.prefs_win = None
+        return False  # Permite que la ventana se cierre
 
     def create_action(self, name, callback, shortcuts=None):
         """Add an application action.
