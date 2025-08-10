@@ -8,320 +8,209 @@
 #
 # 	http://www.apache.org/licenses/LICENSE-2.0
 #
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 # SPDX-License-Identifier: Apache-2.0
 
-from gi.repository import Adw
-from gi.repository import Gtk
+from gi.repository import Adw, Gtk, GLib
 from .conectar import Connect
+from collections import Counter
 import math
 
 @Gtk.Template(resource_path='/com/github/thorhent/CA/window.ui')
 class ClinicalayudanteWindow(Adw.ApplicationWindow):
     __gtype_name__ = 'ClinicalayudanteWindow'
 
-    
     entrySintomas = Gtk.Template.Child("entrySintomas")
     butAddSintomas = Gtk.Template.Child("butAddSintomas")
     adwExpandSintomas = Gtk.Template.Child("adwExpandSintomas")
     butRemSintomas = Gtk.Template.Child("butRemSintomas")
-    #butInvestigar = Gtk.Template.Child("butInvestigar")
     enfermedadesListBox = Gtk.Template.Child("enfermedadesListBox")
     labelPosiblesEnfermedades = Gtk.Template.Child("labelPosiblesEnfermedades")
     tov = Gtk.Template.Child("tov")
 
-    labelList = list() #lista de síntomas/signos en adwExpand
-
-    iconsLista = ["network-cellular-signal-excellent-rtl-symbolic","network-cellular-signal-good-rtl-symbolic",
-	"network-cellular-signal-ok-rtl-symbolic","network-cellular-signal-weak-rtl-symbolic"]
-    ###########################################################
+    ICONOS_LISTA = (
+        "network-cellular-signal-excellent-rtl-symbolic",
+        "network-cellular-signal-good-rtl-symbolic",
+        "network-cellular-signal-ok-rtl-symbolic",
+        "network-cellular-signal-weak-rtl-symbolic",
+    )
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        self.labelList = []
         self.getListaBDSignosSintomas()
-        
-    
+
     def getListaBDSignosSintomas(self):
-        try: 
+        try:
             conn = Connect()
             cursor = conn.conectar()
-            select = "select distinct sintoma_signo from clinica \
-                order by sintoma_signo ASC;"
+            sintomas = cursor.execute(
+                "SELECT DISTINCT sintoma_signo FROM clinica ORDER BY sintoma_signo ASC;"
+            ).fetchall()
 
-            sintomas = cursor.execute(select).fetchall()
-            
-            
             completion = Gtk.EntryCompletion()
-            self.entrySintomas.set_completion(completion)
-
             list_store = Gtk.ListStore.new([str])
             for sintoma in sintomas:
                 list_store.append(sintoma)
 
             completion.set_model(list_store)
-
             completion.set_text_column(0)
             completion.set_inline_completion(True)
             completion.set_inline_selection(True)
+            self.entrySintomas.set_completion(completion)
 
         except Exception as e:
             print(e)
-            print("Falla conexión con base de datos.")
             toast = Adw.Toast(title="Falla en la conexión inicial con base de datos.")
             self.tov.add_toast(toast)
 
+    def _agregar_sintoma(self, texto):
+        if not texto.strip():
+            return
+        label = Gtk.Label(label=texto)
+        self.labelList.append(label)
+        self.adwExpandSintomas.add_row(label)
+        self.entrySintomas.set_text("")
+        self.entrySintomas.grab_focus_without_selecting()
 
     @Gtk.Template.Callback("entrySintomas_enter")
     def enter_add_sintomas(self, *args):
-        buffer = self.entrySintomas.get_text()
-        label = Gtk.Label(label=buffer)
-        self.labelList.append(label)
-        self.adwExpandSintomas.add_row(label)
-        self.entrySintomas.set_text("")
-        self.entrySintomas.grab_focus_without_selecting()
+        self._agregar_sintoma(self.entrySintomas.get_text())
 
     @Gtk.Template.Callback("butAddSintomas_clicked")
     def add_sintomas(self, *args):
-        buffer = self.entrySintomas.get_text()
-        label = Gtk.Label(label=buffer)
-        self.labelList.append(label)
-        self.adwExpandSintomas.add_row(label)
-        self.entrySintomas.set_text("")
-        self.entrySintomas.grab_focus_without_selecting()
-
+        self._agregar_sintoma(self.entrySintomas.get_text())
 
     @Gtk.Template.Callback("butRemSintomas_clicked")
     def quit_sintomas(self, *args):
-        if len(self.labelList) > 0:
-            self.adwExpandSintomas.remove(self.labelList[len(self.labelList)-1].get_parent())
+        if self.labelList:
+            self.adwExpandSintomas.remove(self.labelList[-1].get_parent())
             self.labelList.pop()
 
     @Gtk.Template.Callback("butLimpiar_clicked")
     def limpiar_sintomas(self, *args):
-        if len(self.labelList) > 0:
-            for hijo in self.labelList:
-                self.adwExpandSintomas.remove(hijo.get_parent())
+        for hijo in self.labelList:
+            self.adwExpandSintomas.remove(hijo.get_parent())
+        self.labelList.clear()
 
-            self.labelList.clear()
-
-
-    
     @Gtk.Template.Callback("butInvestigar_clicked")
     def investigar_enfermedades(self, *args):
-        #try:
-        obj_conn = Connect()
-        cursor = obj_conn.conectar()
-        select_base = """select clinica.*, enfermedades.enfermedad, enfermedades.síndrome 
-                from clinica inner join enfermedades using(cod_enfermedad) where """
-        
-        #un ciclo para crear una string select segun los signos/sintomas
-        for i in range(len(self.labelList)):
-            if i > 0:
-                select_sintomas += f" or sintoma_signo = '{self.labelList[i].get_text()}'" 
-            else:
-                select_sintomas = f"sintoma_signo = '{self.labelList[i].get_text()}'"
-        
-        select_sintomas += ";"
-        select_base += select_sintomas
-        datos = cursor.execute(select_base).fetchall()
-        
-        
-        print("######### SELECT DE LA BASE DE DATOS ########")
-        print()
-        print(datos)
-        print()
-        print(f"Tamanho = {len(datos)}")
-        print()
-        listaNova = self.ordenar_enfermedades(datos)
-        self.escribir_enfermedades(listaNova)
-        self.labelPosiblesEnfermedades.set_label(f"Posibles enfermedades [{len(listaNova)}]")
-        #except Exception:
-            #cursor.close()
-            #obj_conn.quit()
-            #toast = Adw.Toast(title="Agregue síntomas o signos.")
-            #self.tov.add_toast(toast)
-            #print("La lista de síntomas o signos no debe ser vacía.")
-        
-            
-        
-    
+        if not self.labelList:
+            toast = Adw.Toast(title="Agregue síntomas o signos.")
+            self.tov.add_toast(toast)
+            return
+
+        conn = Connect()
+        cursor = conn.conectar()
+        condiciones = " OR ".join(
+            "sintoma_signo = ?" for _ in self.labelList
+        )
+        query = f"""
+            SELECT clinica.*, enfermedades.enfermedad, enfermedades.síndrome
+            FROM clinica
+            INNER JOIN enfermedades USING(cod_enfermedad)
+            WHERE {condiciones};
+        """
+        valores = [label.get_text() for label in self.labelList]
+        datos = cursor.execute(query, valores).fetchall()
+
+        lista_ordenada = self.ordenar_enfermedades(datos)
+        self.escribir_enfermedades(lista_ordenada)
+        self.labelPosiblesEnfermedades.set_label(f"Posibles enfermedades [{len(lista_ordenada)}]")
+
     def ordenar_enfermedades(self, listaDatos):
-        #utilizar map con lambda para descobrir la cantidad de veces que la enfermedad se repite
-        # utilizar zip para mezclar los datos
-        listaEnfermedades = list()
-        listaEAQ = list()
-        tam_datos = len(listaDatos)
-        
-        ### agrega desde select en otra lista solo [Enfermedad , Síndrome] 
-        for i in range(tam_datos):
-            listaEnfermedades.append([listaDatos[i][3], listaDatos[i][4]])
-        
-        tam_enf = len(listaEnfermedades)
-        
-        #### crea otra lista con Enfermedad, sindrome y cantidad de veces que enfermedad repite
-        for i in range(tam_enf):
-            listaEAQ.append(listaEnfermedades[i])
-            listaEAQ[i].append(listaEnfermedades.count(listaEnfermedades[i]))
-        
-            
-         ########## ordenar lista
-        listaEAQ = sorted(listaEAQ, key=lambda x: x[2], reverse=True)
-        
-        ####generar nueva lista sin repeticiones de enfermedades preservando agentes
-        listaNova = list()  
-        listaEnf = list()
-        #listaAg = list()
-        for i in range(len(listaEAQ)):
-            if listaEAQ[i][0] in listaEnf:
-                for lista in listaNova:
-                    if listaEAQ[i][0] == lista[0]:
-                        if listaEAQ[i][2] not in lista:
-                            lista.append(listaEAQ[i][2])
-                            #listaAg.append(listaEAQ[i][2])
-                
-            else:
-                listaNova.append(listaEAQ[i])
-                listaEnf.append(listaEAQ[i][0])
-                #listaAg.append(listaEAQ[i][2])
-        
-        print("##### LISTA NUEVA ORDENADA #######")
-        print()
-        print(listaNova)
-        print()
-        print(f"Tamaño = {len(listaNova)}")
-        print()
-        print("########## FIM ###########")
-        print()
-        return listaNova
-    
-        
+        enfermedades = [(row[3], row[4]) for row in listaDatos]
+        contador = Counter(enfermedades)
+        listaEAQ = [(enf, sind, cnt) for (enf, sind), cnt in contador.items()]
+        return sorted(listaEAQ, key=lambda x: x[2], reverse=True)
+
     def escribir_enfermedades(self, listaNova):
         self.enfermedadesListBox.remove_all()
-        
-        tam_signos = len(self.labelList)
-        
-        for datos in listaNova:
-            if datos[2]/tam_signos == 1:
-                self.crear_adwActions(datos[0], datos[1], self.iconsLista[0])  
-            elif datos[2]/tam_signos >= 0.6:
-                self.crear_adwActions(datos[0], datos[1], self.iconsLista[1])
-            elif datos[2]/tam_signos > 0.4:
-                self.crear_adwActions(datos[0], datos[1], self.iconsLista[2])
+        total = len(self.labelList)
+        for enfermedad, sindrome, match in listaNova:
+            ratio = match / total
+            if ratio == 1:
+                icon = self.ICONOS_LISTA[0]
+            elif ratio >= 0.6:
+                icon = self.ICONOS_LISTA[1]
+            elif ratio > 0.4:
+                icon = self.ICONOS_LISTA[2]
             else:
-                self.crear_adwActions(datos[0], datos[1], self.iconsLista[3])
-    
-    
-    
-        
+                icon = self.ICONOS_LISTA[3]
+            self.crear_adwActions(enfermedad, sindrome, icon)
+
     def crear_adwActions(self, enfermedad, sindrome, icon):
         adwAction = Adw.ActionRow()
-        adwAction.activate()
         adwAction.set_title(enfermedad)
-        subtitle = sindrome 
-        adwAction.set_subtitle(subtitle)
-    
+        adwAction.set_subtitle(sindrome)
         adwAction.set_icon_name(icon)
         adwAction.set_margin_top(5)
         adwAction.set_margin_start(10)
         adwAction.set_margin_end(10)
         adwAction.set_margin_bottom(5)
-        
-        ### crear boton
-        botonEnfermedad = Gtk.Button()
-        ### identidad del boton
-        botonEnfermedad.set_name(f"{enfermedad}")
-        botonEnfermedad.set_icon_name("edit-copy-symbolic")
-        ### ubicacion
-        botonEnfermedad.set_margin_top(10)
-        botonEnfermedad.set_margin_start(20)
-        botonEnfermedad.set_margin_bottom(10)
-        ####
-        adwAction.add_suffix(botonEnfermedad)
+
+        boton = Gtk.Button()
+        boton.set_name(enfermedad)
+        boton.set_icon_name("edit-copy-symbolic")
+        boton.set_margin_top(10)
+        boton.set_margin_start(20)
+        boton.set_margin_bottom(10)
+
+        adwAction.add_suffix(boton)
         self.enfermedadesListBox.append(adwAction)
-        
-        self.conectar_boton(botonEnfermedad)
-    
-    
-    def conectar_boton(self, botonEnfermedad):
-        botonEnfermedad.connect("clicked", self.on_clicked)
-    
+        boton.connect("clicked", self.on_clicked)
+        GLib.idle_add(adwAction.activate)
+
     def on_clicked(self, boton):
-
         builder = Gtk.Builder()
-
         builder.add_from_resource('/com/github/thorhent/CA/enfermedad_window.ui')
-        ## captura de objetos de la ventana
-        window = builder.get_object("enfermedad_window")
-        window.set_title(boton.get_name())
-        ##### capturar objectos de la ventana
-        ### page 4
+        ventana_enfermedad = builder.get_object("enfermedad_window")
+        ventana_enfermedad.set_title(boton.get_name())
+
         listBoxTratFarmacologico = builder.get_object("listBoxTratFarmacologico")
-        ### page1
         gridSS = builder.get_object("gridSS")
         listBoxPreguntasP1 = builder.get_object("listBoxPreguntasP1")
-        ### page2
         listBoxExploracion = builder.get_object("listBoxExploracion")
-        ### page 3
         listBoxEstudios = builder.get_object("listBoxEstudios")
-        #### statusPage
         statusPage1 = builder.get_object("statusPage1")
         statusPage2 = builder.get_object("statusPage2")
         statusPage3 = builder.get_object("statusPage3")
         statusPage4 = builder.get_object("statusPage4")
-        
-        try:
-            #####
-            conn = Connect()
-            cursor = conn.conectar()
-            select = f"select cod_enfermedad from enfermedades where enfermedad = '{boton.get_name()}';"
-            cod_enfermedad = cursor.execute(select).fetchone()
-            
-            #### select para pagina de tratamiento
-            select = f"select * from tratamientos where cod_enfermedad = {cod_enfermedad[0]};"
-            datosTratamiento = cursor.execute(select).fetchall()
-            
-            ##### select para pagina de anamnesis
-            select = f"select distinct sintoma_signo from clinica where cod_enfermedad = {cod_enfermedad[0]};"
-            datosSS = cursor.execute(select).fetchall()
-            
-            ####### select preguntas
-            select = f"select * from preguntas where cod_enfermedad = {cod_enfermedad[0]} ORDER BY cod_pregunta ASC;"
-            datosPreguntas = cursor.execute(select).fetchall()
-            
-            #### select para exploracion fisica
-            select = f"select * from exploraciones_fisicas where cod_enfermedad = {cod_enfermedad[0]};"
-            datosExploracion = cursor.execute(select).fetchall()
-            
-            #### select para pagina de estudio
-            select = f"select * from estudios where cod_enfermedad = {cod_enfermedad[0]};"
-            datosEstudios = cursor.execute(select).fetchall()
-            
-        except:
-            pass
 
+        conn = Connect()
+        cursor = conn.conectar()
+        cod_enfermedad = cursor.execute(
+            "SELECT cod_enfermedad FROM enfermedades WHERE enfermedad = ?;",
+            (boton.get_name(),)
+        ).fetchone()
 
-        window.present()
-        
-        ### definir status de cada pagina segun enfermedad
-        statusPage1.set_description(f"{boton.get_name()}")
-        statusPage2.set_description(f"{boton.get_name()}")
-        statusPage3.set_description(f"{boton.get_name()}")
-        statusPage4.set_description(f"{boton.get_name()}")
-        
-        #### llamar funciones para cada pagina
+        datosTratamiento = cursor.execute(
+            "SELECT * FROM tratamientos WHERE cod_enfermedad = ?;", cod_enfermedad
+        ).fetchall()
+        datosSS = cursor.execute(
+            "SELECT DISTINCT sintoma_signo FROM clinica WHERE cod_enfermedad = ?;", cod_enfermedad
+        ).fetchall()
+        datosPreguntas = cursor.execute(
+            "SELECT * FROM preguntas WHERE cod_enfermedad = ? ORDER BY cod_pregunta ASC;", cod_enfermedad
+        ).fetchall()
+        datosExploracion = cursor.execute(
+            "SELECT * FROM exploraciones_fisicas WHERE cod_enfermedad = ?;", cod_enfermedad
+        ).fetchall()
+        datosEstudios = cursor.execute(
+            "SELECT * FROM estudios WHERE cod_enfermedad = ?;", cod_enfermedad
+        ).fetchall()
+
+        for sp in (statusPage1, statusPage2, statusPage3, statusPage4):
+            sp.set_description(boton.get_name())
+
         self.crear_tratamiento(datosTratamiento, listBoxTratFarmacologico)
         self.crear_anamnesis(datosSS, datosPreguntas, gridSS, listBoxPreguntasP1)
         self.crear_estudios(datosEstudios, listBoxEstudios)
         self.crear_exploracion_fisica(datosExploracion, listBoxExploracion)
-    
+
+        ventana_enfermedad.present()
 
     def crear_anamnesis(self, datos, datosPreguntas, gridSS, listBoxPreguntasP1):
-        lineas = math.ceil(len(datos)/4)
+        lineas = math.ceil(len(datos) / 4)
         aux = 0
         for linea in range(lineas):
             for columna in range(4):
@@ -329,177 +218,87 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
                     break
                 adwAction = Adw.ActionRow()
                 adwAction.set_title(datos[aux][0])
-                
-                aux += 1
-                
                 adwAction.set_margin_top(5)
                 adwAction.set_margin_start(10)
                 adwAction.set_margin_end(10)
                 adwAction.set_margin_bottom(5)
                 adwAction.add_css_class("card")
-                    
                 gridSS.attach(adwAction, columna, linea, 1, 1)
-        
+                aux += 1
+
         for dato in datosPreguntas:
             adwAction = Adw.ActionRow()
             adwAction.set_title(dato[2])
-            
-            #adwExpander.set_subtitle(dato[3])
-            
-            #labelPregunta = Gtk.Label(label=f"Objetivo: {dato[5]}")
-            
-            #adwExpander.add_row(labelObjetivo)
-            
             adwAction.set_margin_top(5)
             adwAction.set_margin_start(10)
             adwAction.set_margin_end(10)
             adwAction.set_margin_bottom(5)
-            
             listBoxPreguntasP1.append(adwAction)
-    
-            
+
     def crear_exploracion_fisica(self, datos, listBoxExploracion):
-        try:
-            if datos[0][2] != None:
-                listaInpeccion = datos[0][2].split("; ")
-                adwExpander = Adw.ExpanderRow()
-                adwExpander.set_title("<b>Inspección</b>")
-                
-                adwExpander.set_margin_top(5)
-                adwExpander.set_margin_start(10)
-                adwExpander.set_margin_end(10)
-                adwExpander.set_margin_bottom(5)
-                
-                for insp in listaInpeccion:
-                    adwAcInsp = Adw.ActionRow()
-                    adwAcInsp.set_margin_start(25)
-                    adwAcInsp.set_margin_end(25)
-                    adwAcInsp.set_title(insp)
-                    adwExpander.add_row(adwAcInsp)
-                
-                listBoxExploracion.append(adwExpander)
-                
-            if datos[0][3] != None:
-                listaPalpacion = datos[0][3].split("; ")
-                adwExpander = Adw.ExpanderRow()
-                adwExpander.set_title("<b>Palpación</b>")
-                
-                adwExpander.set_margin_top(5)
-                adwExpander.set_margin_start(10)
-                adwExpander.set_margin_end(10)
-                adwExpander.set_margin_bottom(5)
-                
-                for palp in listaPalpacion:
-                    adwAcPalp = Adw.ActionRow()
-                    adwAcPalp.set_title(palp)
-                    adwAcPalp.set_margin_start(25)
-                    adwAcPalp.set_margin_end(25)
-                    adwExpander.add_row(adwAcPalp)
-                
-                listBoxExploracion.append(adwExpander)
-                
-                
-            if datos[0][4] != None:
-                listaPercusion = datos[0][4].split("; ")
-                adwExpander = Adw.ExpanderRow()
-                adwExpander.set_title("<b>Percusión</b>")
-                
-                adwExpander.set_margin_top(5)
-                adwExpander.set_margin_start(10)
-                adwExpander.set_margin_end(10)
-                adwExpander.set_margin_bottom(5)
-                
-                for perc in listaPercusion:
-                    adwAcPerc = Adw.ActionRow()                    
-                    adwAcPerc.set_title(perc)
-                    adwAcPerc.set_margin_start(25)
-                    adwAcPerc.set_margin_end(25)
-                    adwExpander.add_row(adwAcPerc)
-                
-                listBoxExploracion.append(adwExpander)
-                
-                
-            if datos[0][5] != None:
-                listaAuscultacion = datos[0][5].split("; ")
-                adwExpander = Adw.ExpanderRow()
-                adwExpander.set_title("<b>Auscultación</b>")
-                
-                adwExpander.set_margin_top(5)
-                adwExpander.set_margin_start(10)
-                adwExpander.set_margin_end(10)
-                adwExpander.set_margin_bottom(5)
-                
-                for aus in listaAuscultacion:
-                    adwAcAus = Adw.ActionRow()
-                    adwAcAus.set_title(aus)
-                    adwAcAus.set_margin_start(25)
-                    adwAcAus.set_margin_end(25)
-                    adwExpander.add_row(adwAcAus)
-                
-                listBoxExploracion.append(adwExpander)
-                
-        except Exception as error:
-            #print(f"Se espera {error=}, {type(error)=}")
-            print("Ausencia de datos de exploración física.")
-            
-             
+        if not datos:
+            return
+        titulos = ["Inspección", "Palpación", "Percusión", "Auscultación"]
+        for idx, titulo in enumerate(titulos, start=2):
+            if datos[0][idx]:
+                lista = datos[0][idx].split("; ")
+                expander = Adw.ExpanderRow()
+                expander.set_title(f"<b>{titulo}</b>")
+                expander.set_use_markup(True)
+                expander.set_margin_top(5)
+                expander.set_margin_start(10)
+                expander.set_margin_end(10)
+                expander.set_margin_bottom(5)
+                for item in lista:
+                    row = Adw.ActionRow()
+                    row.set_title(item)
+                    row.set_margin_start(25)
+                    row.set_margin_end(25)
+                    expander.add_row(row)
+                listBoxExploracion.append(expander)
+
     def crear_estudios(self, datos, listBoxEstudios):
-        try:
-            for dato in datos:
-                listaEstudioObjetivo = dato[4].split("; ")
-                adwExpander = Adw.ExpanderRow()
-                adwExpander.set_title(f"<b>{dato[3]}</b>")
-                adwExpander.set_subtitle(f"Estudio: {dato[2]}")
-                label = Gtk.Label(label="Objetivo(s)")
-                adwExpander.add_suffix(label)
-                for objetivo in listaEstudioObjetivo:
-                    adwAcObjetivo = Adw.ActionRow()
-                    adwAcObjetivo.set_title(objetivo)
-                    adwAcObjetivo.set_margin_start(25)
-                    adwAcObjetivo.set_margin_end(25)
-                    adwExpander.add_row(adwAcObjetivo)
-                    
-                
-                adwExpander.set_margin_top(5)
-                adwExpander.set_margin_start(10)
-                adwExpander.set_margin_end(10)
-                adwExpander.set_margin_bottom(5)
-                
-                listBoxEstudios.append(adwExpander)
-                
-        except Exception as error:
-            print("Ausencia de estudios")
+        for dato in datos:
+            objetivos = dato[4].split("; ")
+            expander = Adw.ExpanderRow()
+            expander.set_title(f"<b>{dato[3]}</b>")
+            expander.set_use_markup(True)
+            expander.set_subtitle(f"Estudio: {dato[2]}")
+            for objetivo in objetivos:
+                row = Adw.ActionRow()
+                row.set_title(objetivo)
+                row.set_margin_start(25)
+                row.set_margin_end(25)
+                expander.add_row(row)
+            expander.set_margin_top(5)
+            expander.set_margin_start(10)
+            expander.set_margin_end(10)
+            expander.set_margin_bottom(5)
+            listBoxEstudios.append(expander)
 
     def crear_tratamiento(self, datos, listBoxTratFarmacologico):
-        
         for dato in datos:
-            #crear objeto Adw
-            adwExpander = Adw.ExpanderRow()
-            adwExpander.set_margin_top(5)
-            adwExpander.set_margin_start(10)
-            adwExpander.set_margin_end(10)
-            adwExpander.set_margin_bottom(5)
-            
-            adwExpander.set_title(f"<b>{dato[4]}</b>")
-            adwExpander.set_subtitle("<b>Clase:</b> "+ dato[3] + 
-                f"   <b>Tipo:</b> {dato[2]}")
-            
-            adwAcObjetivo = Adw.ActionRow()
-            adwAcObjetivo.set_title("Objetivo")
-            adwAcObjetivo.set_subtitle(dato[5])
-            adwAcObjetivo.set_margin_start(25)
-            adwAcObjetivo.set_margin_end(25)
-            
-            adwExpander.add_row(adwAcObjetivo)
-            
-            if dato[6] != None:
-                adwAcOtro = Adw.ActionRow()
-                adwAcOtro.set_title("Otras informaciones")
-                adwAcOtro.set_subtitle(dato[6])
-                adwAcOtro.set_margin_start(25)
-                adwAcOtro.set_margin_end(25)
-                adwExpander.add_row(adwAcOtro)
-                    
-            listBoxTratFarmacologico.append(adwExpander)
+            expander = Adw.ExpanderRow()
+            expander.set_margin_top(5)
+            expander.set_margin_start(10)
+            expander.set_margin_end(10)
+            expander.set_margin_bottom(5)
+            expander.set_title(f"<b>{dato[4]}</b>")
+            expander.set_use_markup(True)
+            expander.set_subtitle(f"<b>Clase:</b> {dato[3]}   <b>Tipo:</b> {dato[2]}")
+            expander.set_use_markup(True)
+            objetivo = Adw.ActionRow()
+            objetivo.set_title("Objetivo")
+            objetivo.set_subtitle(dato[5])
+            objetivo.set_margin_start(25)
+            objetivo.set_margin_end(25)
+            expander.add_row(objetivo)
+            if dato[6]:
+                otros = Adw.ActionRow()
+                otros.set_title("Otras informaciones")
+                otros.set_subtitle(dato[6])
+                otros.set_margin_start(25)
+                otros.set_margin_end(25)
+                expander.add_row(otros)
+            listBoxTratFarmacologico.append(expander)
 
-    
