@@ -46,11 +46,11 @@
 
   <screenshots>
     <screenshot type="default">
-      <image> </image>
+      <image>https://raw.githubusercontent.com/thorhent/CA/refs/heads/master/screenshot/ca1.png</image>
       <caption>Pantalla principal con lista de diagnósticos sugeridos</caption>
     </screenshot>
     <screenshot>
-      <image> </image>
+      <image>https://raw.githubusercontent.com/thorhent/CA/refs/heads/master/screenshot/ca2.png</image>
       <caption>Detalle de una enfermedad con anamnesis, exploración, estudios y tratamiento</caption>
     </screenshot>
   </screenshots>
