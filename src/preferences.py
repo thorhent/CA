@@ -49,10 +49,35 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
     def cargar_enfermedades(self):
         conn = Connect()
         cursor = conn.conectar()
-        cursor.execute("SELECT enfermedad, síndrome FROM enfermedades ORDER BY enfermedad ASC;")
+        # Join the diseases and clinica tables to get all symptoms at once
+        cursor.execute("SELECT enfermedades.enfermedad, enfermedades.síndrome, clinica.sintoma_signo FROM enfermedades LEFT JOIN clinica USING(cod_enfermedad) ORDER BY enfermedades.enfermedad ASC;")
         filas = cursor.fetchall()
         cursor.close()
-        return [Enfermedad(nombre=row[0], sindrome=row[1]) for row in filas]
+
+        # Group symptoms by disease
+        enfermedades_dict = {}
+        for row in filas:
+            nombre_enf = row[0]
+            sindrome = row[1]
+            sintoma = row[2]
+            if nombre_enf not in enfermedades_dict:
+                enfermedades_dict[nombre_enf] = {
+                    "sindrome": sindrome,
+                    "sintomas": []
+                }
+            if sintoma:
+                enfermedades_dict[nombre_enf]["sintomas"].append(sintoma)
+
+        # Convert the dictionary back to a list of Enfermedad objects
+        enfermedades = []
+        for nombre, datos in enfermedades_dict.items():
+            enfermedad = Enfermedad(nombre=nombre, sindrome=datos["sindrome"])
+            # Add a new attribute to hold the symptoms
+            enfermedad.sintomas = datos["sintomas"]
+            enfermedades.append(enfermedad)
+
+        return enfermedades
+
 
     def filtrar_y_actualizar(self):
         texto = self.search.get_text().lower()
@@ -64,15 +89,29 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
             child = next_child
 
         for enf in self.enfermedades:
-            if texto in enf.nombre.lower() or texto in (enf.sindrome or "").lower():
-                fila = Adw.ActionRow()
-                fila.set_title(enf.nombre)
-                fila.set_subtitle(enf.sindrome)
-                fila.set_activatable(True)
-                fila.connect("activated", self.on_fila_activated, enf)
-                self.listbox.append(fila)
+            search_string = f"{enf.nombre.lower()} {enf.sindrome.lower()} {' '.join(enf.sintomas).lower()}"
+            if texto in search_string:
+                # Crear el AdwExpanderRow
+                expander_row = Adw.ExpanderRow()
+                expander_row.set_title(enf.nombre)
+                expander_row.set_subtitle(enf.sindrome)
+                expander_row.set_margin_top(5)
+                expander_row.set_margin_start(10)
+                expander_row.set_margin_end(10)
+                expander_row.set_margin_bottom(5)
+                expander_row.add_css_class("card")
+
+                for sintoma in enf.sintomas:
+                    sintoma_row = Gtk.Label() #Adw.ActionRow()
+                    sintoma_row.set_label(sintoma)
+                    #sintoma_row.set_margin_start(10)
+                    #sintoma_row.set_margin_end(10)
+                    expander_row.add_row(sintoma_row)
+
+                self.listbox.append(expander_row)
 
         self.listbox.show()
+
 
     def on_fila_activated(self, fila, enfermedad):
         dialog = Gtk.MessageDialog(
@@ -83,8 +122,12 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
             text=enfermedad.nombre
         )
         dialog.format_secondary_text(enfermedad.sindrome or "Sin descripción")
-        dialog.run()
-        dialog.destroy()
+
+        # Conectar la señal 'response' para destruir el diálogo
+        dialog.connect("response", lambda d, r: d.destroy())
+
+        # Mostrar el diálogo sin bloquear el bucle principal de GTK
+        dialog.present()
 
 class PreferencesWindow(Adw.PreferencesWindow):
     def __init__(self):

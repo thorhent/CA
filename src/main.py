@@ -49,6 +49,7 @@ class ClinicalayudanteApplication(Adw.Application):
             win = ClinicalayudanteWindow(application=self)
         win.present()
 
+
     def on_about_action(self, *args):
         """Callback for the app.about action."""
         about = Adw.AboutDialog(application_name='Clinical Ayudante',
