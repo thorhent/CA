@@ -32,18 +32,17 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
         search_group.add(self.search)
 
         # Grupo para las enfermedades
-        enfermedades_group = Adw.PreferencesGroup()
-        self.add(enfermedades_group)
+        self.enfermedades_group = Adw.PreferencesGroup()
+        self.add(self.enfermedades_group)
 
         self.listbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        enfermedades_group.add(self.listbox)
+        self.enfermedades_group.add(self.listbox)
 
         self.enfermedades = self.cargar_enfermedades()
-        cantidad = len(self.enfermedades)
-        enfermedades_group.set_title(f"Enfermedades [{cantidad}]")
         self.filtrar_y_actualizar()
 
         self.search.connect("search-changed", lambda s: self.filtrar_y_actualizar())
+
 
 
     def cargar_enfermedades(self):
@@ -88,9 +87,11 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
             self.listbox.remove(child)
             child = next_child
 
+        cantidad_enfermedades = 0
         for enf in self.enfermedades:
             search_string = f"{enf.nombre.lower()} {enf.sindrome.lower()} {' '.join(enf.sintomas).lower()}"
             if texto in search_string:
+                cantidad_enfermedades += 1
                 # Crear el AdwExpanderRow
                 expander_row = Adw.ExpanderRow()
                 expander_row.set_title(enf.nombre)
@@ -111,6 +112,7 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
                 self.listbox.append(expander_row)
 
         self.listbox.show()
+        self.enfermedades_group.set_title(f"Enfermedades [{cantidad_enfermedades}]")
 
 
     def on_fila_activated(self, fila, enfermedad):
