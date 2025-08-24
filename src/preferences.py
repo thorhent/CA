@@ -28,7 +28,7 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
         self.add(search_group)
 
         self.search = Gtk.SearchEntry()
-        self.search.set_placeholder_text("Buscar enfermedad...")
+        self.search.set_placeholder_text("Buscar enfermedad, síndrome o síntoma ...")
         search_group.add(self.search)
 
         # Grupo para las enfermedades
