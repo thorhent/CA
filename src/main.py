@@ -51,7 +51,7 @@ class ClinicalayudanteApplication(Adw.Application):
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='clinicalayudante',
+        about = Adw.AboutDialog(application_name='Clinical Ayudante',
                                 application_icon='io.github.thorhent.CA',
                                 developer_name='Taylan Branco Meurer',
                                 version='1.8.25',
