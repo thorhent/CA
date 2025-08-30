@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.thorhent.CA</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+
+  <name>Clinical Ayudante</name>
+  <summary>Asistente clínico para diagnóstico diferencial</summary>
+  <description>
+    <p>
+      Clinicalayudante es una herramienta médica que, a partir de una lista de signos y síntomas
+      ingresados por el usuario, sugiere un conjunto de posibles enfermedades ordenadas por probabilidad.
+      Cada diagnóstico sugerido incluye información estructurada para anamnesis, exploración física,
+      estudios complementarios y opciones de tratamiento.
+    </p>
+    <p>
+      Está diseñada como apoyo para estudiantes y profesionales de la salud, facilitando la organización
+      del razonamiento clínico y la toma de decisiones basadas en la presentación inicial del paciente.
+    </p>
+  </description>
+
+  <developer id="io.github.thorhent">
+    <name>Taylan Branco Meurer</name>
+  </developer>
+
+  
+  <url type="homepage">https://github.com/thorhent/CA</url>
+  <url type="bugtracker">https://github.com/thorhent/CA/issues</url>
+  <url type="faq">https://github.com/thorhent/CA/wiki</url>
+  <url type="contact">https://github.com/thorhent/CA/issues</url>
+  <translation type="gettext">clinicalayudante</translation>
+  <launchable type="desktop-id">io.github.thorhent.CA.desktop</launchable>
+  <content_rating type="oars-1.1" />
+
+  <!-- Applications should set a brand color in both light and dark variants like so -->
+  <branding>
+    <color type="primary" scheme_preference="light">#ff00ff</color>
+    <color type="primary" scheme_preference="dark">#993d3d</color>
+  </branding>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/thorhent/CA/refs/heads/master/screenshot/ca1.png</image>
+      <caption>Pantalla principal con lista de diagnósticos sugeridos</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/thorhent/CA/refs/heads/master/screenshot/ca2.png</image>
+      <caption>Detalle de una enfermedad con anamnesis, exploración, estudios y tratamiento</caption>
+    </screenshot>
+  </screenshots>
+
+  <releases>
+    <release version="1.8.25" date="2025-08-08">
+      <url type="details">https://github.com/thorhent/CA</url>
+      <description translate="yes">
+        <p>Versión con mejoras en el motor de diagnóstico y base de datos actualizada.</p>
+        <ul>
+          <li>Optimización del algoritmo de priorización de enfermedades</li>
+          <li>Ampliación del contenido de anamnesis y exploración física</li>
+          <li>Corrección de errores menores en la interfaz</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+</component>
