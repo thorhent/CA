@@ -1,4 +1,9 @@
-[Flatpak Repo]
-Name=Clinical Ayudante
-Url=https://thorhent.github.io/CA/repo
-GPGKey=https://raw.githubusercontent.com/thorhent/CA/refs/heads/gh-pages/clave-gpg.asc
+{
+  "FlatpakRepo": {
+    "repo-url": "https://thorhent.github.io/CA/repo",
+    "gpg-keys": "mDMEaLYF3RYJKwYBBAHaRw8BAQdAthW0uI7qfrbP+bwMktajbiM2XH1jz/b/jZ1SrxtJTcq0QVRheWxhbiBCcmFuY28gTWV1cmVyIChpby5naXRodWIudGhvcmhlbnQuQ0EpIDx0Ym1ldXJlckBnbWFpbC5jb20+iJMEExYKADsWIQSMFQvh788ktDLsodQr+ysVHverPQUCaLYF3QIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAKCRAr+ysVHverPSWAAQDzABxwJu2c2kp3NKa5WWssYr7fExPkl/DiDfYhGgKCfwD9EWFCWrvEkMmrS2u11oOyIZyyXVqYvXcIu0BLP8hMuQ24OARotgXdEgorBgEEAZdVAQUBAQdAj05PCND7+Go0iJkEpMOjYhPYrhkVpDQrC8b03fvupQADAQgHiHgEGBYKACAWIQSMFQvh788ktDLsodQr+ysVHverPQUCaLYF3QIbDAAKCRAr+ysVHverPVc8AP4rXxmmyWghIN5xCZWWPqsbrOiq0nv3z/MqqcFynRciIgEAyKW0FnBPekCB1uAY5QRwHBNYLTvYiOIHoN2Yj/M5egs=",
+    "default-branch": "master",
+    "title": "thorhent-CA"
+  }
+}
+
