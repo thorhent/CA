@@ -1,4 +1,4 @@
 [Flatpak Repo]
 Name=Clinical Ayudante
-Url=https://thorhent.github.io/CA/repo/
+Url=https://thorhent.github.io/CA/repo
 GPGKey=https://raw.githubusercontent.com/thorhent/CA/refs/heads/gh-pages/clave-gpg.asc
