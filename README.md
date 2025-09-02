@@ -18,24 +18,40 @@ Construida con **Python**, **GTK4** y **SQLite3**, combina una interfaz nativa y
 
 ## Instalación desde Flatpak
 
-Para compilar e instalar la aplicación desde su fuente, asegúrate de tener `flatpak-builder` instalado en tu sistema.
+### 1. Añadir el repositorio
 
-1.  Primero, navega al directorio del proyecto y usa `flatpak-builder` para compilar e instalar la aplicación a partir del archivo de manifiesto:
+Para añadir el repositorio de la aplicación **Clinical Ayudante**, abre una terminal y ejecuta:
 
-    ```bash
-    flatpak-builder --force-clean build-dir com.github.thorhent.CA.json
-    ```
+```bash
+flatpak remote-add --user --if-not-exists thorhent-CA https://thorhent.github.io/CA/CA.flatpakrepo
+```
 
+### 2. Actualizar el repositorio (opcional)
 
-    ```bash
-    flatpak-builder --user --force-clean --install build-dir com.github.thorhent.CA.json
-    ```
+```bash
+flatpak update --user thorhent-CA
+```
 
-2.  Una vez finalizada la instalación, puedes ejecutar la aplicación con el siguiente comando:
+### 3. Instalar la aplicación
 
-    ```bash
-    flatpak run com.github.thorhent.CA
-    ```
+```bash
+flatpak install thorhent-CA io.github.thorhent.CA
+```
+
+### 4. Ejecutar la aplicación
+
+```bash
+flatpak run io.github.thorhent.CA
+```
+
+### 5. Desinstalar la aplicación (opcional)
+
+```bash
+flatpak uninstall io.github.thorhent.CA
+flatpak remote-delete thorhent-CA
+```
+
+> 💡 **Nota:** La instalación se realiza con la opción `--user`, lo que significa que queda disponible solo para el usuario actual. Si deseas instalarla a nivel del sistema, omite `--user`.
 
 ---
 
@@ -56,20 +72,22 @@ El funcionamiento de Clinical Ayudante depende de una base de datos interna con 
 ## Contribuciones
 
 ¡Nos encantaría recibir tu ayuda! Puedes contribuir al proyecto de varias maneras:
+
 * Reportando errores o sugiriendo nuevas funcionalidades.
 * Añadiendo información a la base de datos para hacer el diagnóstico más completo.
 * Mejorando el código o la interfaz de usuario.
 
-Si tienes alguna idea, no dudes en abrir una "issue" o enviar un "pull request" en el repositorio de GitHub.
+Si tienes alguna idea, no dudes en abrir una *issue* o enviar un *pull request* en el repositorio de GitHub.
 
 ---
 
 ## Versión
 
-Versión: 1.8.25
+Versión: 1.9.25
 
 ---
 
 ## Licencia
 
 Este proyecto está distribuido bajo la licencia [Licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
