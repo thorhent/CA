@@ -148,6 +148,7 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
     def crear_adwActions(self, enfermedad, sindrome, icon):
         adwAction = Adw.ActionRow()
         adwAction.set_title(enfermedad)
+        sindrome = sindrome or ""
         adwAction.set_subtitle(sindrome)
         adwAction.set_icon_name(icon)
         adwAction.set_margin_top(5)
