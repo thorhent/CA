@@ -89,13 +89,15 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
 
         cantidad_enfermedades = 0
         for enf in self.enfermedades:
-            search_string = f"{enf.nombre.lower()} {enf.sindrome.lower()} {' '.join(enf.sintomas).lower()}"
+            nombre_str = enf.nombre or ""
+            sindrome_str = enf.sindrome or ""
+            search_string = f"{nombre_str.lower()} {sindrome_str.lower()} {' '.join(enf.sintomas).lower()}"
             if texto in search_string:
                 cantidad_enfermedades += 1
                 # Crear el AdwExpanderRow
                 expander_row = Adw.ExpanderRow()
                 expander_row.set_title(enf.nombre)
-                expander_row.set_subtitle(enf.sindrome)
+                expander_row.set_subtitle(sindrome_str)
                 expander_row.set_margin_top(5)
                 expander_row.set_margin_start(10)
                 expander_row.set_margin_end(10)
