@@ -18,7 +18,8 @@
                     <property name="vexpand-set">True</property>
                     <child>
                       <object class="AdwExpanderRow" id="adwExpandSintomas">
-                        <property name="expanded">True</property>
+                        <property name="width-request">280</property>
+                        <property name="expanded">true</property>
                         <property name="icon-name">view-sort-descending-symbolic</property>
                         <property name="margin-bottom">10</property>
                         <property name="margin-end">5</property>
@@ -31,18 +32,27 @@
                   </object>
                 </child>
                 <child>
-                  <object class="GtkButton" id="butInvestigar">
-                    <property name="label">Investigar</property>
-                    <property name="margin-end">60</property>
-                    <property name="margin-start">50</property>
-                    <property name="margin-top">5</property>
-                    <property name="tooltip-text">Investigar las enfermedades posibles según los síntomas o signos</property>
-                    <signal name="clicked" handler="butInvestigar_clicked"/>
-                    <style>
-                      <class name="suggested-action"/>
-                    </style>
+                  <object class="GtkBox">
+                    <property name="margin-end">0</property>
+                    <property name="margin-start">0</property>
+                    <property name="margin-top">15</property>
+                    <child>
+                      <object class="GtkButton" id="butInvestigar">
+                        <property name="label">Investigar</property>
+                        <property name="width-request">250</property>
+                        <property name="margin-end">75</property>
+                        <property name="margin-start">50</property>
+                        <property name="margin-top">5</property>
+                        <property name="tooltip-text">Investigar las enfermedades posibles según los síntomas o signos</property>
+                        <signal name="clicked" handler="butInvestigar_clicked"/>
+                        <style>
+                          <class name="suggested-action"/>
+                        </style>
+                      </object>
+                    </child>
                   </object>
                 </child>
+
                 <child>
                   <object class="GtkBox">
                     <property name="margin-end">60</property>
@@ -89,11 +99,11 @@
                 </child>
                 <child>
                   <object class="GtkScrolledWindow">
-                    <property name="hexpand">True</property>
+                    <property name="hexpand">true</property>
                     <property name="margin-end">5</property>
                     <child>
                       <object class="GtkListBox" id="enfermedadesListBox">
-                        <property name="hexpand">True</property>
+                        <property name="hexpand">true</property>
                         <property name="margin-bottom">30</property>
                         <property name="margin-end">30</property>
                         <property name="margin-start">30</property>
@@ -118,8 +128,9 @@
           <object class="AdwHeaderBar" id="header_bar">
             <child type="start">
               <object class="GtkEntry" id="entrySintomas">
-                <property name="hexpand">True</property>
-                <property name="hexpand-set">True</property>
+                <property name="hexpand">true</property>
+                <property name="hexpand-set">true</property>
+                <property name="width-request">300</property>
                 <property name="placeholder-text">Síntoma o signo</property>
                 <property name="primary-icon-name">document-edit-symbolic</property>
                 <property name="tooltip-markup">Síntoma o signo</property>
@@ -146,8 +157,8 @@
         </child>
       </object>
     </property>
-    <property name="default-height">600</property>
-    <property name="default-width">1000</property>
+    <property name="default-height">610</property>
+    <property name="default-width">1080</property>
     <property name="title">Clinical Ayudante</property>
   </template>
   <menu id="primary_menu">
