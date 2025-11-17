@@ -50,7 +50,7 @@
   </screenshots>
 
   <releases>
-    <release version="1.8.25" date="2025-08-08">
+    <release version="1.11.25" date="2025-08-08">
       <url type="details">https://github.com/thorhent/CA</url>
       <description translate="yes">
         <p>Versión con mejoras en el motor de diagnóstico y base de datos actualizada.</p>
