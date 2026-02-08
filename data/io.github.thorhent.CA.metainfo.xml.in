@@ -50,14 +50,12 @@
   </screenshots>
 
   <releases>
-    <release version="1.11.25" date="2025-08-08">
+    <release version="1.2.26" date="2026-02-08">
       <url type="details">https://github.com/thorhent/CA</url>
       <description translate="yes">
-        <p>Versión con mejoras en el motor de diagnóstico y base de datos actualizada.</p>
+        <p>Versión con base de datos actualizada.</p>
         <ul>
-          <li>Optimización del algoritmo de priorización de enfermedades</li>
-          <li>Ampliación del contenido de anamnesis y exploración física</li>
-          <li>Corrección de errores menores en la interfaz</li>
+          <li>Editado manifestaciones clínicas.</li>
         </ul>
       </description>
     </release>

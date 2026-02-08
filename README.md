@@ -83,7 +83,7 @@ Si tienes alguna idea, no dudes en abrir una *issue* o enviar un *pull request* 
 
 ## Versión
 
-Versión: 1.11.25
+Versión: 1.2.26
 
 ---
 
