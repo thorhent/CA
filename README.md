@@ -23,7 +23,7 @@ Construida con **Python**, **GTK4** y **SQLite3**, combina una interfaz nativa y
 Para añadir el repositorio de la aplicación **Clinical Ayudante**, abre una terminal y ejecuta:
 
 ```bash
-flatpak remote-add --user --if-not-exists thorhent-CA https://thorhent.github.io/CA/CA.flatpakrepo
+flatpak remote-add --user --if-not-exists --no-gpg-verify thorhent-CA https://thorhent.github.io/CA/CA.flatpakrepo
 ```
 
 ### 2. Actualizar el repositorio (opcional)
