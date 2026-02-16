@@ -20,7 +20,9 @@ from gi.repository import Adw, Gtk, GLib
 from .conectar import Connect
 from collections import Counter
 import math
+import gettext
 
+_ = gettext.gettext
 
 @Gtk.Template(resource_path='/io/github/thorhent/CA/window.ui')
 class ClinicalayudanteWindow(Adw.ApplicationWindow):
@@ -67,7 +69,7 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
 
         except Exception as e:
             print(e)
-            toast = Adw.Toast(title="Falla en la conexión inicial con base de datos.")
+            toast = Adw.Toast(title=_("Falla en la conexión inicial con base de datos."))
             self.tov.add_toast(toast)
 
     def _agregar_sintoma(self, texto):
@@ -102,7 +104,7 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
     @Gtk.Template.Callback("butInvestigar_clicked")
     def investigar_enfermedades(self, *args):
         if not self.labelList:
-            toast = Adw.Toast(title="Agregue síntomas o signos.")
+            toast = Adw.Toast(title=_("Agregue síntomas o signos."))
             self.tov.add_toast(toast)
             return
 
@@ -122,7 +124,8 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
 
         lista_ordenada = self.ordenar_enfermedades(datos)
         self.escribir_enfermedades(lista_ordenada)
-        self.labelPosiblesEnfermedades.set_label(f"Posibles enfermedades [{len(lista_ordenada)}]")
+        #self.labelPosiblesEnfermedades.set_label(f"Posibles enfermedades [{len(lista_ordenada)}]")
+        self.labelPosiblesEnfermedades.set_label(_("Posibles enfermedades [{}]").format(len(lista_ordenada)))
 
     def ordenar_enfermedades(self, listaDatos):
         enfermedades = [(row[3], row[4]) for row in listaDatos]
@@ -303,7 +306,7 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
             expander.add_row(objetivo)
             if dato[6]:
                 otros = Adw.ActionRow()
-                otros.set_title("Otras informaciones")
+                otros.set_title(_("Otras informaciones"))
                 otros.set_subtitle(dato[6])
                 otros.set_margin_start(25)
                 otros.set_margin_end(25)

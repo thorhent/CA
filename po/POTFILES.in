@@ -6,3 +6,6 @@ data/io.github.thorhent.CA.gschema.xml
 src/main.py
 src/window.py
 src/window.ui
+src/preferences.py
+src/conectar.py
+src/enfermedad_window.ui

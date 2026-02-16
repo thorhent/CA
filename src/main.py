@@ -18,6 +18,25 @@
 
 import sys
 import gi
+import gettext
+import locale
+
+
+# Configuración de traducción
+APP_ID = "clinicalayudante"
+# En Flatpak, las traducciones se guardan en esta ruta
+LOCALE_DIR = "/app/share/locale"
+
+locale.setlocale(locale.LC_ALL, '')
+
+# Estas líneas configuran el entorno para Python y GtkBuilder
+locale.bindtextdomain(APP_ID, LOCALE_DIR)
+locale.textdomain(APP_ID)
+gettext.bindtextdomain(APP_ID, LOCALE_DIR)
+gettext.textdomain(APP_ID)
+gettext.install(APP_ID, LOCALE_DIR)
+
+_ = gettext.gettext
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
@@ -56,10 +75,10 @@ class ClinicalayudanteApplication(Adw.Application):
                                 developer_name='Taylan Branco Meurer',
                                 version='1.2.26',
                                 developers=['Taylan Branco Meurer'],
-                                copyright='© 2025 Taylan Branco Meurer')
+                                copyright='© 2026 Taylan Branco Meurer')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_('translator-credits'))
-        about.add_credit_section("Orientadores médicos", ['Dra. Lorena Djament'])
+        about.add_credit_section( _("Orientadores médicos"), ['Dra. Lorena Djament'])
         about.present(self.props.active_window)
 
     def on_preferences_action(self, widget, _):
