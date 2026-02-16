@@ -53,9 +53,12 @@
     <release version="1.2.26" date="2026-02-08">
       <url type="details">https://github.com/thorhent/CA</url>
       <description translate="yes">
-        <p>Versión con base de datos actualizada.</p>
+        <p>Aplicación genera lista de enfermedades a partir de síntomas o signos.</p>
         <ul>
-          <li>Editado manifestaciones clínicas.</li>
+          <li>La lista se genera en orden de más probable para menos.</li>
+          <li>Cada enfermedad contiene informaciones que orientan en momento de anamnesis, exploración física, estudios complementarios y tratamiento.</li>
+          <li>La base de datos está escrita en Sqlite, contiene 310 enfermedades registradas.</li>
+          <li>Base de datos escrita sólo en español.</li>
         </ul>
       </description>
     </release>

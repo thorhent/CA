@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<interface>
+<interface domain="clinicalayudante">
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
   <template class="ClinicalayudanteWindow" parent="AdwApplicationWindow">
@@ -25,8 +25,8 @@
                         <property name="margin-end">5</property>
                         <property name="margin-start">5</property>
                         <property name="margin-top">10</property>
-                        <property name="subtitle">Síntomas y signos</property>
-                        <property name="title">Lista</property>
+                        <property name="subtitle" translatable="yes">Síntomas y signos</property>
+                        <property name="title" translatable="yes">Lista</property>
                       </object>
                     </child>
                   </object>
@@ -38,12 +38,12 @@
                     <property name="margin-top">15</property>
                     <child>
                       <object class="GtkButton" id="butInvestigar">
-                        <property name="label">Investigar</property>
+                        <property name="label" translatable="yes">Investigar</property>
                         <property name="width-request">250</property>
                         <property name="margin-end">75</property>
                         <property name="margin-start">50</property>
                         <property name="margin-top">5</property>
-                        <property name="tooltip-text">Investigar las enfermedades posibles según los síntomas o signos</property>
+                        <property name="tooltip-text" translatable="yes">Investigar las enfermedades posibles según los síntomas o signos</property>
                         <signal name="clicked" handler="butInvestigar_clicked"/>
                         <style>
                           <class name="suggested-action"/>
@@ -61,7 +61,7 @@
                     <child>
                       <object class="GtkButton" id="butRemSintomas">
                         <property name="icon-name">user-trash-symbolic</property>
-                        <property name="tooltip-text">Remover último síntoma o signo</property>
+                        <property name="tooltip-text" translatable="yes">Remover último síntoma o signo</property>
                         <signal name="clicked" handler="butRemSintomas_clicked"/>
                         <style>
                           <class name="destructive-action"/>
@@ -71,9 +71,9 @@
                     </child>
                     <child>
                       <object class="GtkButton" id="butLimpiar">
-                        <property name="label">Limpiar todo</property>
+                        <property name="label" translatable="yes">Limpiar todo</property>
                         <property name="margin-start">10</property>
-                        <property name="tooltip-text">Limpiar todos los síntomas/signos</property>
+                        <property name="tooltip-text" translatable="yes">Limpiar todos los síntomas/signos</property>
                         <signal name="clicked" handler="butLimpiar_clicked"/>
                         <style>
                           <class name="destructive-action"/>
@@ -90,7 +90,7 @@
                 <child>
                   <object class="GtkLabel" id="labelPosiblesEnfermedades">
                     <property name="hexpand">True</property>
-                    <property name="label">Posibles enfermedades</property>
+                    <property name="label" translatable="yes">Posibles enfermedades</property>
                     <property name="margin-top">20</property>
                     <style>
                       <class name="title-4"/>
@@ -131,9 +131,9 @@
                 <property name="hexpand">true</property>
                 <property name="hexpand-set">true</property>
                 <property name="width-request">300</property>
-                <property name="placeholder-text">Síntoma o signo</property>
+                <property name="placeholder-text" translatable="yes">Síntoma o signo</property>
                 <property name="primary-icon-name">document-edit-symbolic</property>
-                <property name="tooltip-markup">Síntoma o signo</property>
+                <property name="tooltip-markup" translatable="yes">Síntoma o signo</property>
                 <property name="tooltip-text" translatable="yes" context="Síntoma ou signo">Síntoma o signo</property>
                 <signal name="activate" handler="entrySintomas_enter"/>
               </object>
@@ -141,7 +141,7 @@
             <child type="start">
               <object class="GtkButton" id="butAddSintomas">
                 <property name="icon-name">list-add-symbolic</property>
-                <property name="tooltip-text">Agregar síntoma o signo en la lista abajo</property>
+                <property name="tooltip-text" translatable="yes">Agregar síntoma o signo en la lista abajo</property>
                 <signal name="clicked" handler="butAddSintomas_clicked"/>
               </object>
             </child>
@@ -165,15 +165,15 @@
     <section>
       <item>
         <attribute name="action">app.preferences</attribute>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="label" translatable="yes">Preferences</attribute>
       </item>
       <item>
         <attribute name="action">win.show-help-overlay</attribute>
-        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="label" translatable="yes">Keyboard Shortcuts</attribute>
       </item>
       <item>
         <attribute name="action">app.about</attribute>
-        <attribute name="label" translatable="yes">_About Clinical Ayudante</attribute>
+        <attribute name="label" translatable="yes">About Clinical Ayudante</attribute>
       </item>
     </section>
   </menu>

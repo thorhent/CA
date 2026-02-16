@@ -1,0 +1,151 @@
+# Spanish translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Taylan Branco Meurer <taylan.meurer@outlook.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-15 17:57-0300\n"
+"PO-Revision-Date: 2026-02-15 13:57-0300\n"
+"Last-Translator: Taylan Branco Meurer <taylan.meurer@outlook.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/main.py:71
+#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:61
+msgid "translator-credits"
+msgstr ""
+
+#: src/main.py:72
+msgid "Orientadores médicos"
+msgstr "Orientadores médicos"
+
+#: src/preferences.py:34
+msgid "Buscar enfermedad, síndrome o síntoma ..."
+msgstr "Buscar enfermedad, síndrome o síntoma ..."
+
+#: src/preferences.py:131
+msgid "Sin descripción"
+msgstr "Sin descripción"
+
+#: src/window.py:72
+msgid "Falla en la conexión inicial con base de datos."
+msgstr "Falla en la conexión inicial con base de datos."
+
+#: src/window.py:107
+msgid "Agregue síntomas o signos."
+msgstr "Agregue síntomas o signos."
+
+#: src/window.py:128
+msgid "Posibles enfermedades [{}]"
+msgstr "Posibles enfermedades [{}]"
+
+#: src/window.py:309
+msgid "Otras informaciones"
+msgstr "Otras informaciones"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "General"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Salir"
+
+#: src/enfermedad_window.ui:39
+msgid "Signos o síntomas posibles"
+msgstr "Signos o síntomas posibles"
+
+#: src/enfermedad_window.ui:60
+msgid "Datos y preguntas relevantes"
+msgstr "Datos y preguntas relevantes"
+
+#: src/enfermedad_window.ui:95
+msgid "Anamnesis"
+msgstr "Anamnesis"
+
+#: src/enfermedad_window.ui:132
+msgid "Exploración física"
+msgstr "Exploración física"
+
+#: src/enfermedad_window.ui:167
+msgid "Estudios"
+msgstr "Estudios"
+
+#: src/enfermedad_window.ui:202
+msgid "Tratamiento"
+msgstr "Tratamiento"
+
+#: src/enfermedad_window.ui:218
+msgid "Enfermedad"
+msgstr "Enfermedad"
+
+#: src/window.ui:28
+msgid "Síntomas y signos"
+msgstr "Síntomas y signos"
+
+#: src/window.ui:29
+msgid "Lista"
+msgstr "Lista"
+
+#: src/window.ui:41
+msgid "Investigar"
+msgstr "Investigar"
+
+#: src/window.ui:46
+msgid "Investigar las enfermedades posibles según los síntomas o signos"
+msgstr "Investigar las enfermedades posibles según los síntomas o signos"
+
+#: src/window.ui:64
+msgid "Remover último síntoma o signo"
+msgstr "Remover último síntoma o signo"
+
+#: src/window.ui:74
+msgid "Limpiar todo"
+msgstr "Limpiar todo"
+
+#: src/window.ui:76
+msgid "Limpiar todos los síntomas/signos"
+msgstr "Limpiar todos los síntomas/signos"
+
+#: src/window.ui:93
+msgid "Posibles enfermedades"
+msgstr "Posibles enfermedades"
+
+#: src/window.ui:134 src/window.ui:136
+msgid "Síntoma o signo"
+msgstr "Síntoma o signo"
+
+#: src/window.ui:137
+msgctxt "Síntoma ou signo"
+msgid "Síntoma o signo"
+msgstr "Síntoma o signo"
+
+#: src/window.ui:144
+msgid "Agregar síntoma o signo en la lista abajo"
+msgstr "Agregar síntoma o signo en la lista abajo"
+
+#: src/window.ui:168
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: src/window.ui:172
+msgid "Keyboard Shortcuts"
+msgstr "Atajos de teclado"
+
+#: src/window.ui:176
+msgid "About Clinical Ayudante"
+msgstr "Sobre Clinical Ayudante"

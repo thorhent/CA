@@ -1,0 +1,51 @@
+# Spanish translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Taylan Branco Meurer <taylan.meurer@outlook.com>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-15 13:49-0300\n"
+"PO-Revision-Date: 2026-02-15 13:57-0300\n"
+"Last-Translator: Taylan Branco Meurer <taylan.meurer@outlook.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/preferences.py:31
+msgid "Buscar enfermedad, síndrome o síntoma ..."
+msgstr ""
+
+#: src/preferences.py:128
+msgid "Sin descripción"
+msgstr ""
+
+#: src/window.py:70
+msgid "Falla en la conexión inicial con base de datos."
+msgstr ""
+
+#: src/window.py:105
+msgid "Agregue síntomas o signos."
+msgstr ""
+
+#: src/window.py:126
+msgid "Posibles enfermedades [{}]"
+msgstr ""
+
+#: src/window.py:307
+msgid "Otras informaciones"
+msgstr ""
+
+#: src/main.py:71
+#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:61
+msgid "translator-credits"
+msgstr ""
+
+#: src/main.py:72
+msgid "Orientadores médicos"
+msgstr ""

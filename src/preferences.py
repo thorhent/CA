@@ -1,5 +1,8 @@
 import gi
 import sqlite3
+import gettext
+
+_ = gettext.gettext
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
@@ -28,7 +31,7 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
         self.add(search_group)
 
         self.search = Gtk.SearchEntry()
-        self.search.set_placeholder_text("Buscar enfermedad, síndrome o síntoma ...")
+        self.search.set_placeholder_text(_("Buscar enfermedad, síndrome o síntoma ..."))
         search_group.add(self.search)
 
         # Grupo para las enfermedades
@@ -125,7 +128,7 @@ class EnfermedadesPreferencesPage(Adw.PreferencesPage):
             message_type=Gtk.MessageType.INFO,
             text=enfermedad.nombre
         )
-        dialog.format_secondary_text(enfermedad.sindrome or "Sin descripción")
+        dialog.format_secondary_text(enfermedad.sindrome or _("Sin descripción"))
 
         # Conectar la señal 'response' para destruir el diálogo
         dialog.connect("response", lambda d, r: d.destroy())
