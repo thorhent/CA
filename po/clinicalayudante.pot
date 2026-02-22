@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+#,
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 17:57-0300\n"
+"POT-Creation-Date: 2026-02-22 17:12-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,48 +17,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/main.py:47
-msgid "quit"
-msgstr ""
-
-#: src/main.py:48
-msgid "about"
-msgstr ""
-
-#: src/main.py:49
-msgid "preferences"
-msgstr ""
-
-#: src/main.py:71
-#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:61
+#: src/main.py:75
+#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:80
 msgid "translator-credits"
 msgstr ""
 
-#: src/main.py:72
+#: src/main.py:76
+#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:81
 msgid "Orientadores médicos"
 msgstr ""
 
-#: src/preferences.py:34
+#: src/preferences.py:33
+#: build-dir/files/share/clinicalayudante/clinicalayudante/preferences.py:34
 msgid "Buscar enfermedad, síndrome o síntoma ..."
 msgstr ""
 
-#: src/preferences.py:131
+#: src/preferences.py:130
+#: build-dir/files/share/clinicalayudante/clinicalayudante/preferences.py:131
 msgid "Sin descripción"
 msgstr ""
 
-#: src/window.py:72
+#: src/window.py:71
+#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:72
 msgid "Falla en la conexión inicial con base de datos."
 msgstr ""
 
-#: src/window.py:107
+#: src/window.py:106
+#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:107
 msgid "Agregue síntomas o signos."
 msgstr ""
 
-#: src/window.py:128
+#: src/window.py:127
+#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:128
 msgid "Posibles enfermedades [{}]"
 msgstr ""
 
-#: src/window.py:309
+#: src/window.py:251
+msgid "Inspección"
+msgstr ""
+
+#: src/window.py:251
+msgid "Palpación"
+msgstr ""
+
+#: src/window.py:251
+msgid "Percusión"
+msgstr ""
+
+#: src/window.py:251
+msgid "Auscultación"
+msgstr ""
+
+#: src/window.py:277
+msgid "Estudio: {}"
+msgstr ""
+
+#: src/window.py:300
+msgid "<b>Clase:</b> {}   <b>Tipo:</b> {}"
+msgstr ""
+
+#: src/window.py:304
+msgid "Objetivo"
+msgstr ""
+
+#: src/window.py:311
+#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:309
 msgid "Otras informaciones"
 msgstr ""
 
@@ -75,34 +98,6 @@ msgstr ""
 #: src/gtk/help-overlay.ui:20
 msgctxt "shortcut window"
 msgid "Quit"
-msgstr ""
-
-#: src/enfermedad_window.ui:39
-msgid "Signos o síntomas posibles"
-msgstr ""
-
-#: src/enfermedad_window.ui:60
-msgid "Datos y preguntas relevantes"
-msgstr ""
-
-#: src/enfermedad_window.ui:95
-msgid "Anamnesis"
-msgstr ""
-
-#: src/enfermedad_window.ui:132
-msgid "Exploración física"
-msgstr ""
-
-#: src/enfermedad_window.ui:167
-msgid "Estudios"
-msgstr ""
-
-#: src/enfermedad_window.ui:202
-msgid "Tratamiento"
-msgstr ""
-
-#: src/enfermedad_window.ui:218
-msgid "Enfermedad"
 msgstr ""
 
 #: src/window.ui:28
@@ -160,4 +155,32 @@ msgstr ""
 
 #: src/window.ui:176
 msgid "About Clinical Ayudante"
+msgstr ""
+
+#: src/enfermedad_window.ui:39
+msgid "Signos o síntomas posibles"
+msgstr ""
+
+#: src/enfermedad_window.ui:60
+msgid "Datos y preguntas relevantes"
+msgstr ""
+
+#: src/enfermedad_window.ui:95
+msgid "Anamnesis"
+msgstr ""
+
+#: src/enfermedad_window.ui:132
+msgid "Exploración física"
+msgstr ""
+
+#: src/enfermedad_window.ui:167
+msgid "Estudios"
+msgstr ""
+
+#: src/enfermedad_window.ui:202
+msgid "Tratamiento"
+msgstr ""
+
+#: src/enfermedad_window.ui:218
+msgid "Enfermedad"
 msgstr ""

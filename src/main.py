@@ -27,16 +27,11 @@ APP_ID = "clinicalayudante"
 # En Flatpak, las traducciones se guardan en esta ruta
 LOCALE_DIR = "/app/share/locale"
 
-locale.setlocale(locale.LC_ALL, '')
-
-# Estas líneas configuran el entorno para Python y GtkBuilder
-locale.bindtextdomain(APP_ID, LOCALE_DIR)
-locale.textdomain(APP_ID)
 gettext.bindtextdomain(APP_ID, LOCALE_DIR)
 gettext.textdomain(APP_ID)
 gettext.install(APP_ID, LOCALE_DIR)
 
-_ = gettext.gettext
+#_ = gettext.gettext
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')

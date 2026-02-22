@@ -22,7 +22,6 @@ from collections import Counter
 import math
 import gettext
 
-_ = gettext.gettext
 
 @Gtk.Template(resource_path='/io/github/thorhent/CA/window.ui')
 class ClinicalayudanteWindow(Adw.ApplicationWindow):
@@ -249,7 +248,8 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
     def crear_exploracion_fisica(self, datos, listBoxExploracion):
         if not datos:
             return
-        titulos = ["Inspección", "Palpación", "Percusión", "Auscultación"]
+        titulos = [_("Inspección"), _("Palpación"), _("Percusión"), _("Auscultación")]
+        #titulos = ["Inspección", "Palpación", "Percusión", "Auscultación"]
         for idx, titulo in enumerate(titulos, start=2):
             if datos[0][idx]:
                 lista = datos[0][idx].split("; ")
@@ -274,7 +274,8 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
             expander = Adw.ExpanderRow()
             expander.set_title(f"<b>{dato[3]}</b>")
             expander.set_use_markup(True)
-            expander.set_subtitle(f"Estudio: {dato[2]}")
+            expander.set_subtitle(_("Estudio: {}").format(dato[2]))
+            #expander.set_subtitle(f"Estudio: {dato[2]}")
             for objetivo in objetivos:
                 row = Adw.ActionRow()
                 row.set_title(objetivo)
@@ -296,10 +297,11 @@ class ClinicalayudanteWindow(Adw.ApplicationWindow):
             expander.set_margin_bottom(5)
             expander.set_title(f"<b>{dato[4]}</b>")
             expander.set_use_markup(True)
-            expander.set_subtitle(f"<b>Clase:</b> {dato[3]}   <b>Tipo:</b> {dato[2]}")
+            expander.set_subtitle(_("<b>Clase:</b> {}   <b>Tipo:</b> {}").format(dato[3], dato[2]))
+            #expander.set_subtitle(f"<b>Clase:</b> {dato[3]}   <b>Tipo:</b> {dato[2]}")
             expander.set_use_markup(True)
             objetivo = Adw.ActionRow()
-            objetivo.set_title("Objetivo")
+            objetivo.set_title(_("Objetivo"))
             objetivo.set_subtitle(dato[5])
             objetivo.set_margin_start(25)
             objetivo.set_margin_end(25)
