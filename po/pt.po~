@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-15 13:49-0300\n"
+"POT-Creation-Date: 2026-02-15 17:57-0300\n"
 "PO-Revision-Date: 2026-02-15 17:35-0300\n"
 "Last-Translator: Taylan Branco Meurer <tbmeurer@gmail.com>\n"
 "Language-Team: Portuguese\n"
@@ -17,35 +17,134 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/preferences.py:31
-msgid "Buscar enfermedad, síndrome o síntoma ..."
-msgstr "Buscar enfermedade, síndrome ou síntoma ..."
-
-#: src/preferences.py:128
-msgid "Sin descripción"
-msgstr "Sem descrição"
-
-#: src/window.py:70
-msgid "Falla en la conexión inicial con base de datos."
-msgstr "Falha na conexão inicial com o banco de dados."
-
-#: src/window.py:105
-msgid "Agregue síntomas o signos."
-msgstr "Agregue síntomas ou signos."
-
-#: src/window.py:126
-msgid "Posibles enfermedades [{}]"
-msgstr "Possíveis enfermedades [{}]"
-
-#: src/window.py:307
-msgid "Otras informaciones"
-msgstr "Outras informações"
-
-#: src/main.py:71
 #: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:61
 msgid "translator-credits"
-msgstr "créditos do tradutor"
+msgstr "Taylan Branco Meurer"
 
 #: src/main.py:72
 msgid "Orientadores médicos"
 msgstr "Orientadores médicos"
+
+#: src/preferences.py:34
+msgid "Buscar enfermedad, síndrome o síntoma ..."
+msgstr "Buscar enfermedade, síndrome ou síntoma ..."
+
+#: src/preferences.py:131
+msgid "Sin descripción"
+msgstr "Sem descrição"
+
+#: src/window.py:72
+msgid "Falla en la conexión inicial con base de datos."
+msgstr "Falha na conexão inicial com o banco de dados."
+
+#: src/window.py:107
+msgid "Agregue síntomas o signos."
+msgstr "Agregue síntomas ou signos."
+
+#: src/window.py:128
+msgid "Posibles enfermedades [{}]"
+msgstr "Possíveis enfermedades [{}]"
+
+#: src/window.py:309
+msgid "Otras informaciones"
+msgstr "Outras informações"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Geral"
+
+#: src/gtk/help-overlay.ui:14
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Mostrar atalhos"
+
+#: src/gtk/help-overlay.ui:20
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Sair"
+
+#: src/enfermedad_window.ui:39
+msgid "Signos o síntomas posibles"
+msgstr "Signos ou síntomas possíveis"
+
+#: src/enfermedad_window.ui:60
+msgid "Datos y preguntas relevantes"
+msgstr "Dados e perguntas relevantes"
+
+#: src/enfermedad_window.ui:95
+msgid "Anamnesis"
+msgstr "Anamnesis"
+
+#: src/enfermedad_window.ui:132
+msgid "Exploración física"
+msgstr "Exploração física"
+
+#: src/enfermedad_window.ui:167
+msgid "Estudios"
+msgstr "Estudos"
+
+#: src/enfermedad_window.ui:202
+msgid "Tratamiento"
+msgstr "Tratamento"
+
+#: src/enfermedad_window.ui:218
+msgid "Enfermedad"
+msgstr "Enfermedade"
+
+#: src/window.ui:28
+msgid "Síntomas y signos"
+msgstr "Síntomas e signos."
+
+#: src/window.ui:29
+msgid "Lista"
+msgstr "Lista"
+
+#: src/window.ui:41
+msgid "Investigar"
+msgstr "Investigar"
+
+#: src/window.ui:46
+msgid "Investigar las enfermedades posibles según los síntomas o signos"
+msgstr "Investigar as enfermedades possíveis segundo os síntomas ou signos"
+
+#: src/window.ui:64
+msgid "Remover último síntoma o signo"
+msgstr "Agregue síntomas ou signos."
+
+#: src/window.ui:74
+msgid "Limpiar todo"
+msgstr "Limpar tudo"
+
+#: src/window.ui:76
+msgid "Limpiar todos los síntomas/signos"
+msgstr "Limpar todos os síntomas/signos"
+
+#: src/window.ui:93
+msgid "Posibles enfermedades"
+msgstr "Possíveis enfermedades [{}]"
+
+#: src/window.ui:134 src/window.ui:136
+msgid "Síntoma o signo"
+msgstr "Agregue síntomas ou signos."
+
+#: src/window.ui:137
+msgctxt "Síntoma ou signo"
+msgid "Síntoma o signo"
+msgstr "Agregue síntomas ou signos."
+
+#: src/window.ui:144
+msgid "Agregar síntoma o signo en la lista abajo"
+msgstr "Agregue síntomas ou signos."
+
+#: src/window.ui:168
+msgid "Preferences"
+msgstr "Preferências"
+
+#: src/window.ui:172
+msgid "Keyboard Shortcuts"
+msgstr "Atalhos de teclado"
+
+#: src/window.ui:176
+msgid "About Clinical Ayudante"
+msgstr "Sobre Clinical Ayudante"
