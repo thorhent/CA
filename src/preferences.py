@@ -1,143 +1,148 @@
 import gi
-import sqlite3
 import gettext
-
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Gtk, Adw, GObject
-from .conectar import Connect  # Tu módulo de conexión
+from .conectar import Connect
 
+_ = gettext.gettext
 
 class Enfermedad(GObject.Object):
     nombre = GObject.Property(type=str)
     sindrome = GObject.Property(type=str)
 
-    def __init__(self, nombre, sindrome):
+    def __init__(self, nombre, sindrome, sintomas):
         super().__init__()
-        self.nombre = nombre
-        self.sindrome = sindrome
+        self.set_property("nombre", nombre)
+        self.set_property("sindrome", sindrome)
+        self.sintomas = sintomas
 
 class EnfermedadesPreferencesPage(Adw.PreferencesPage):
-    __gtype_name__ = 'EnfermedadesPreferencesPage'
-
     def __init__(self):
         super().__init__()
-        self.set_margin_end(12)
+        self.set_title(_("Diccionario Clínico"))
+        self.set_icon_name("library-medical-symbolic")
 
-        # Grupo para la búsqueda
-        search_group = Adw.PreferencesGroup()
-        self.add(search_group)
+        # --- GRUPO DE BÚSQUEDA ---
+        self.search_group = Adw.PreferencesGroup()
+        self.add(self.search_group)
 
-        self.search = Gtk.SearchEntry()
-        self.search.set_placeholder_text(_("Buscar enfermedad, síndrome o síntoma ..."))
-        search_group.add(self.search)
+        self.search_entry = Gtk.SearchEntry()
+        self.search_entry.set_placeholder_text(_("Buscar enfermedad, síntoma..."))
+        self.search_entry.set_margin_bottom(12)
+        self.search_group.add(self.search_entry)
 
-        # Grupo para las enfermedades
-        self.enfermedades_group = Adw.PreferencesGroup()
-        self.add(self.enfermedades_group)
+        # --- CONTENEDOR DE RESULTADOS ---
+        self.list_group = Adw.PreferencesGroup()
+        self.add(self.list_group)
 
-        self.listbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
-        self.enfermedades_group.add(self.listbox)
+        self.stack = Gtk.Stack()
+        self.stack.set_transition_type(Gtk.StackTransitionType.CROSSFADE)
+        self.list_group.add(self.stack)
 
-        self.enfermedades = self.cargar_enfermedades()
-        self.filtrar_y_actualizar()
+        # Estado vacío
+        self.status_page = Adw.StatusPage()
+        self.status_page.set_title(_("No se encontraron resultados"))
+        self.status_page.set_icon_name("system-search-symbolic")
+        self.stack.add_named(self.status_page, "empty")
 
-        self.search.connect("search-changed", lambda s: self.filtrar_y_actualizar())
+        # Listado de enfermedades
+        self.list_box = Gtk.ListBox()
+        self.list_box.set_selection_mode(Gtk.SelectionMode.NONE)
+        self.list_box.add_css_class("boxed-list")
+        self.stack.add_named(self.list_box, "list")
 
+        # Configuración del filtro
+        self.list_box.set_filter_func(self.filter_func)
+
+        self.cargar_enfermedades()
+
+        # Conexión de búsqueda
+        self.search_entry.connect("search-changed", self.on_search_changed)
+
+    def filter_func(self, row):
+        query = self.search_entry.get_text().lower()
+        if not query:
+            return True
+
+        # Combinamos título, subtítulo y caché de síntomas para la búsqueda
+        contenido = f"{row.get_title()} {row.get_subtitle()} {row.search_cache}".lower()
+        return query in contenido
+
+    def on_search_changed(self, entry):
+        self.list_box.invalidate_filter()
+
+        cantidad_visible = 0
+        texto_busqueda = entry.get_text().strip()
+
+        child = self.list_box.get_first_child()
+        while child:
+            if child.get_child_visible():
+                cantidad_visible += 1
+            child = child.get_next_sibling()
+
+        # Lógica del título dinámico
+        if texto_busqueda:
+            # Si hay búsqueda, mostramos "X de Y"
+            nuevo_titulo = _(f"Enfermedades: {cantidad_visible} de {self.total_registros}")
+        else:
+            # Si está vacío, solo el total
+            nuevo_titulo = _(f"Enfermedades: {self.total_registros}")
+
+        self.list_group.set_title(nuevo_titulo)
+        self.stack.set_visible_child_name("list" if cantidad_visible > 0 else "empty")
 
 
     def cargar_enfermedades(self):
-        conn = Connect()
-        cursor = conn.conectar()
-        # Join the diseases and clinica tables to get all symptoms at once
-        cursor.execute("SELECT enfermedades.enfermedad, enfermedades.síndrome, clinica.sintoma_signo FROM enfermedades LEFT JOIN clinica USING(cod_enfermedad) ORDER BY enfermedades.enfermedad ASC;")
-        filas = cursor.fetchall()
-        cursor.close()
+        try:
+            conn = Connect()
+            cursor = conn.conectar()
+            query = """
+                SELECT e.enfermedad, e.síndrome, c.sintoma_signo
+                FROM enfermedades e
+                LEFT JOIN clinica c ON e.cod_enfermedad = c.cod_enfermedad
+                ORDER BY e.enfermedad ASC;
+            """
+            cursor.execute(query)
+            filas = cursor.fetchall()
+            cursor.close()
 
-        # Group symptoms by disease
-        enfermedades_dict = {}
-        for row in filas:
-            nombre_enf = row[0]
-            sindrome = row[1]
-            sintoma = row[2]
-            if nombre_enf not in enfermedades_dict:
-                enfermedades_dict[nombre_enf] = {
-                    "sindrome": sindrome,
-                    "sintomas": []
-                }
-            if sintoma:
-                enfermedades_dict[nombre_enf]["sintomas"].append(sintoma)
+            temp_dict = {}
+            for row in filas:
+                if row[0] not in temp_dict:
+                    temp_dict[row[0]] = {"sindrome": row[1], "sintomas": []}
+                if row[2]: temp_dict[row[0]]["sintomas"].append(row[2])
 
-        # Convert the dictionary back to a list of Enfermedad objects
-        enfermedades = []
-        for nombre, datos in enfermedades_dict.items():
-            enfermedad = Enfermedad(nombre=nombre, sindrome=datos["sindrome"])
-            # Add a new attribute to hold the symptoms
-            enfermedad.sintomas = datos["sintomas"]
-            enfermedades.append(enfermedad)
+            # Guardamos el total general en una variable de clase
+            self.total_registros = len(temp_dict)
 
-        return enfermedades
+            for nombre, datos in temp_dict.items():
+                row = Adw.ExpanderRow()
+                row.set_title(nombre)
+                row.set_subtitle(datos["sindrome"] or "")
+                row.search_cache = " ".join(datos["sintomas"])
 
+                for s in datos["sintomas"]:
+                    sintoma_row = Adw.ActionRow()
+                    sintoma_row.set_title(s)
+                    row.add_row(sintoma_row)
 
-    def filtrar_y_actualizar(self):
-        texto = self.search.get_text().lower()
-        # Limpiar hijos de listbox
-        child = self.listbox.get_first_child()
-        while child:
-            next_child = child.get_next_sibling()
-            self.listbox.remove(child)
-            child = next_child
+                self.list_box.append(row)
 
-        cantidad_enfermedades = 0
-        for enf in self.enfermedades:
-            nombre_str = enf.nombre or ""
-            sindrome_str = enf.sindrome or ""
-            search_string = f"{nombre_str.lower()} {sindrome_str.lower()} {' '.join(enf.sintomas).lower()}"
-            if texto in search_string:
-                cantidad_enfermedades += 1
-                # Crear el AdwExpanderRow
-                expander_row = Adw.ExpanderRow()
-                expander_row.set_title(enf.nombre)
-                expander_row.set_subtitle(sindrome_str)
-                expander_row.set_margin_top(5)
-                expander_row.set_margin_start(10)
-                expander_row.set_margin_end(10)
-                expander_row.set_margin_bottom(5)
-                expander_row.add_css_class("card")
+            # Inicializamos el título con el total
+            self.list_group.set_title(_(f"Enfermedades: {self.total_registros}"))
+            self.stack.set_visible_child_name("list")
+        except Exception as e:
+            print(f"Error en carga: {e}")
 
-                for sintoma in enf.sintomas:
-                    sintoma_row = Gtk.Label() #Adw.ActionRow()
-                    sintoma_row.set_label(sintoma)
-                    #sintoma_row.set_margin_start(10)
-                    #sintoma_row.set_margin_end(10)
-                    expander_row.add_row(sintoma_row)
-
-                self.listbox.append(expander_row)
-
-        self.listbox.show()
-        self.enfermedades_group.set_title(f"Enfermedades [{cantidad_enfermedades}]")
-
-
-    def on_fila_activated(self, fila, enfermedad):
-        dialog = Gtk.MessageDialog(
-            transient_for=fila.get_toplevel(),
-            modal=True,
-            buttons=Gtk.ButtonsType.OK,
-            message_type=Gtk.MessageType.INFO,
-            text=enfermedad.nombre
-        )
-        dialog.format_secondary_text(enfermedad.sindrome or _("Sin descripción"))
-
-        # Conectar la señal 'response' para destruir el diálogo
-        dialog.connect("response", lambda d, r: d.destroy())
-
-        # Mostrar el diálogo sin bloquear el bucle principal de GTK
-        dialog.present()
 
 class PreferencesWindow(Adw.PreferencesWindow):
     def __init__(self):
         super().__init__()
+        # Desactivamos el search nativo de la ventana porque usaremos el nuestro interno
+        # Esto evita la confusión de tener dos barras de búsqueda
+        self.set_title(_("Enfermedades"))
         self.set_search_enabled(False)
-        page = EnfermedadesPreferencesPage()
-        self.add(page)
+        self.set_default_size(600, 660)
+        self.add(EnfermedadesPreferencesPage())

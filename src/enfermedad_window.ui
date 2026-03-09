@@ -90,7 +90,7 @@
                     <property name="title" bind-source="page1" bind-property="title" bind-flags="sync-create"/>
                   </object>
                 </property>
-                <property name="icon-name">chat-message-new-symbolic</property>
+                <property name="icon-name">chat-bubble-text-symbolic</property>
                 <property name="name">page1</property>
                 <property name="title" translatable="yes">Anamnesis</property>
                 <property name="use-underline">true</property>
@@ -127,7 +127,7 @@
                     <property name="title" bind-source="page2" bind-property="title" bind-flags="sync-create"/>
                   </object>
                 </property>
-                <property name="icon-name">applications-system-symbolic</property>
+                <property name="icon-name">eye-outline-filled-symbolic</property>
                 <property name="name">page2</property>
                 <property name="title" translatable="yes">Exploración física</property>
                 <property name="use-underline">true</property>
@@ -197,7 +197,7 @@
                     <property name="title" bind-source="page4" bind-property="title" bind-flags="sync-create"/>
                   </object>
                 </property>
-                <property name="icon-name">help-browser-symbolic</property>
+                <property name="icon-name">pharmacy-symbolic</property>
                 <property name="name">page4</property>
                 <property name="title" translatable="yes">Tratamiento</property>
                 <property name="use-underline">true</property>

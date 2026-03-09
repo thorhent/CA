@@ -1,5 +1,5 @@
 project('clinicalayudante',
-          version: '1.2.26',
+          version: '1.3.26',
     meson_version: '>= 1.0.0',
   default_options: [ 'warning_level=2', 'werror=false', ],
 )

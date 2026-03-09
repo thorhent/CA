@@ -33,6 +33,12 @@ clinicalayudante_sources = [
   'conectar.py',
   'CAsqlite.db',
   'preferences.py',
+  'calculadora.py',
 ]
 
 install_data(clinicalayudante_sources, install_dir: moduledir)
+
+install_subdir(
+  'calculadoras',
+  install_dir: moduledir
+)

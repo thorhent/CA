@@ -1,524 +1,494 @@
-# Portuguese translations for PACKAGE package.
-# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# English translations for ClinicalAyudante.
+# Copyright (C) 2026
+# This file is distributed under the same license as the ClinicalAyudante package.
 # Taylan Branco Meurer <tbmeurer@gmail.com>, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: ClinicalAyudante 1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-09 07:27-0300\n"
-"PO-Revision-Date: 2026-02-15 17:35-0300\n"
+"PO-Revision-Date: 2026-03-09 08:30-0300\n"
 "Last-Translator: Taylan Branco Meurer <tbmeurer@gmail.com>\n"
-"Language-Team: Portuguese\n"
-"Language: pt\n"
+"Language-Team: English\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/window.py:71
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:71
 msgid "Falla en la conexión inicial con base de datos."
-msgstr "Falha na conexão inicial com o banco de dados."
+msgstr "Initial database connection failed."
 
 #: src/window.py:106
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:106
 msgid "Agregue síntomas o signos."
-msgstr "Agregue síntomas ou signos."
+msgstr "Add symptoms or signs."
 
 #: src/window.py:127
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:127
 msgid "Posibles enfermedades [{}]"
-msgstr "Possíveis enfermedades [{}]"
+msgstr "Possible diseases [{}]"
 
 #: src/window.py:251
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:251
 msgid "Inspección"
-msgstr "Inspeção"
+msgstr "Inspection"
 
 #: src/window.py:251
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:251
 msgid "Palpación"
-msgstr "Palpação"
+msgstr "Palpation"
 
 #: src/window.py:251
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:251
 msgid "Percusión"
-msgstr "Percussão"
+msgstr "Percussion"
 
 #: src/window.py:251
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:251
 msgid "Auscultación"
-msgstr "Auscultação"
+msgstr "Auscultation"
 
 #: src/window.py:277
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:277
 msgid "Estudio: {}"
-msgstr "Estudos: {}"
+msgstr "Study: {}"
 
 #: src/window.py:300
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:300
 msgid "<b>Clase:</b> {}   <b>Tipo:</b> {}"
-msgstr "<b>Classe:</b> {}   <b>Tipo:</b> {}"
+msgstr "<b>Class:</b> {}   <b>Type:</b> {}"
 
 #: src/window.py:304
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:304
 msgid "Objetivo"
-msgstr "Objetivo"
+msgstr "Objective"
 
 #: src/window.py:311
-#: build-dir/files/share/clinicalayudante/clinicalayudante/window.py:311
 msgid "Otras informaciones"
-msgstr "Outras informações"
+msgstr "Other information"
 
 #: src/calculadoras/imc.py:29
 msgid "Datos Antropométricos"
-msgstr "Dados Antropométricos"
+msgstr "Anthropometric Data"
 
 #: src/calculadoras/imc.py:30
-msgid ""
-"Ingrese el peso y la talla del paciente. Se permite el uso de coma decimal."
-msgstr "Insira o peso e a estatura do paciente. É permitido o uso de vírgula decimal."
+msgid "Ingrese el peso y la talla del paciente. Se permite el uso de coma decimal."
+msgstr "Enter patient weight and height. Decimal comma is allowed."
 
 #: src/calculadoras/imc.py:35
 msgid "Peso (kg)"
-msgstr "Peso (kg)"
+msgstr "Weight (kg)"
 
 #: src/calculadoras/imc.py:40
 msgid "Altura (m)"
-msgstr "Altura (m)"
+msgstr "Height (m)"
 
 #: src/calculadoras/imc.py:45
 msgid "Clasificación Nutricional"
-msgstr "Classificação nutricional"
+msgstr "Nutritional Classification"
 
 #: src/calculadoras/imc.py:58
 msgid "Esperando datos..."
-msgstr "Esperando dados..."
+msgstr "Waiting for data..."
 
 #: src/calculadoras/imc.py:68
 msgid "Calcular IMC"
-msgstr "Calcular IMC"
+msgstr "Calculate BMI"
 
 #: src/calculadoras/imc.py:100
 msgid "Bajo peso"
-msgstr "Baixo peso"
+msgstr "Underweight"
 
 #: src/calculadoras/imc.py:102
 msgid "Peso normal"
-msgstr "Peso normal"
+msgstr "Normal weight"
 
 #: src/calculadoras/imc.py:104
 msgid "Sobrepeso"
-msgstr "Sobrepeso"
+msgstr "Overweight"
 
 #: src/calculadoras/imc.py:106
 msgid "Obesidad"
-msgstr "Obesidade"
+msgstr "Obesity"
 
 #: src/calculadoras/imc.py:112
 msgid "Entrada no válida"
-msgstr "Entrada inválida"
+msgstr "Invalid input"
 
 #: src/calculadoras/pam.py:28
 msgid "Valores de Presión Arterial"
-msgstr "Valores de Pressão Arterial"
+msgstr "Blood Pressure Values"
 
 #: src/calculadoras/pam.py:29
 msgid "Ingrese los valores en mmHg. Puede usar coma o punto decimal."
-msgstr "Ingressar os valores en mmHg. Pode usar vírgula ou ponto decimal."
+msgstr "Enter values in mmHg. You can use comma or decimal point."
 
 #: src/calculadoras/pam.py:34 src/calculadoras/framingham.py:56
 msgid "Presión Sistólica (PAS)"
-msgstr "Pressão Sistólica (PAS)"
+msgstr "Systolic Blood Pressure (SBP)"
 
 #: src/calculadoras/pam.py:39
 msgid "Presión Diastólica (PAD)"
-msgstr "Pressão Diastólica (PAD)"
+msgstr "Diastolic Blood Pressure (DBP)"
 
 #: src/calculadoras/pam.py:44
 msgid "Resultado"
-msgstr "Resultado"
-
-#: src/calculadoras/pam.py:55
-msgid "mmHg"
-msgstr "mmHg"
+msgstr "Result"
 
 #: src/calculadoras/pam.py:65
 msgid "Calcular PAM"
-msgstr "Calcular PAM"
+msgstr "Calculate MAP"
 
 #: src/calculadoras/tfg.py:29
 msgid "Parámetros Renales"
-msgstr "Parâmetros Renais"
+msgstr "Renal Parameters"
 
 #: src/calculadoras/tfg.py:30
 msgid "Fórmula CKD-EPI 2021."
-msgstr "Fórmula CKD-EPI 2021."
+msgstr "2021 CKD-EPI Formula."
 
 #: src/calculadoras/tfg.py:35
 msgid "Creatinina Sérica"
-msgstr "Creatinina Sérica"
+msgstr "Serum Creatinine"
 
 #: src/calculadoras/tfg.py:40 src/calculadoras/framingham.py:44
 msgid "Edad"
-msgstr "Idade"
+msgstr "Age"
 
 #: src/calculadoras/tfg.py:41 src/calculadoras/framingham.py:45
 msgid "años"
-msgstr "anos"
+msgstr "years"
 
 #: src/calculadoras/tfg.py:46 src/calculadoras/framingham.py:61
 msgid "Sexo"
-msgstr "Sexo"
+msgstr "Sex"
 
 #: src/calculadoras/tfg.py:47 src/calculadoras/framingham.py:62
 msgid "Femenino"
-msgstr "Feminino"
+msgstr "Female"
 
 #: src/calculadoras/tfg.py:47 src/calculadoras/framingham.py:62
 msgid "Masculino"
-msgstr "Masculino"
+msgstr "Male"
 
 #: src/calculadoras/tfg.py:52
 msgid "Resultado eGFR"
-msgstr "Resultado de TFGe"
+msgstr "eGFR Result"
 
 #: src/calculadoras/tfg.py:70
 msgid "Calcular eGFR"
-msgstr "Calcular TFGe"
+msgstr "Calculate eGFR"
 
 #: src/calculadoras/gap.py:29
 msgid "Electrolitos Séricos"
-msgstr "Eletrólitos Séricos"
+msgstr "Serum Electrolytes"
 
 #: src/calculadoras/gap.py:30
 msgid "Ingrese los valores en mEq/L para calcular la brecha aniónica."
-msgstr "Insira os valores em mEq/L para calcular o hiato aniônico (ânion gap)."
+msgstr "Enter values in mEq/L to calculate anion gap."
 
 #: src/calculadoras/gap.py:35
 msgid "Sodio (Na+)"
-msgstr "Sódio (Na+)"
+msgstr "Sodium (Na+)"
 
 #: src/calculadoras/gap.py:40
 msgid "Cloro (Cl-)"
-msgstr "Cloro (Cl-)"
+msgstr "Chloride (Cl-)"
 
 #: src/calculadoras/gap.py:45
 msgid "Bicarbonato (HCO3-)"
-msgstr "Bicarbonato (HCO3-)"
+msgstr "Bicarbonate (HCO3-)"
 
 #: src/calculadoras/gap.py:50
 msgid "Resultado Anion Gap"
-msgstr "Resultado Ãnion Gap"
+msgstr "Anion Gap Result"
 
 #: src/calculadoras/gap.py:68
 msgid "Calcular Gap"
-msgstr "Calcular Gap"
+msgstr "Calculate Gap"
 
 #: src/calculadoras/framingham.py:39
 msgid "Perfil de Riesgo"
-msgstr "Perfil de Risco"
+msgstr "Risk Profile"
 
 #: src/calculadoras/framingham.py:40
 msgid "Estimación de riesgo cardiovascular a 10 años."
-msgstr "Estimar risco cardiovascular para 10 anos."
+msgstr "10-year cardiovascular risk estimation."
 
 #: src/calculadoras/framingham.py:48
 msgid "Colesterol Total"
-msgstr "Colesterol Total"
+msgstr "Total Cholesterol"
 
 #: src/calculadoras/framingham.py:52
 msgid "Colesterol HDL"
-msgstr "Colesterol HDL"
+msgstr "HDL Cholesterol"
 
 #: src/calculadoras/framingham.py:67
 msgid "Fumador"
-msgstr "Fumador"
+msgstr "Smoker"
 
 #: src/calculadoras/framingham.py:68 src/calculadoras/framingham.py:74
 msgid "No"
-msgstr "Não"
+msgstr "No"
 
 #: src/calculadoras/framingham.py:68 src/calculadoras/framingham.py:74
 msgid "Sí"
-msgstr "Sim"
+msgstr "Yes"
 
 #: src/calculadoras/framingham.py:73
-
 msgid "Tratamiento para HTA"
-msgstr "Tratamento para HTA"
+msgstr "Hypertension Treatment"
 
 #: src/calculadoras/framingham.py:79
 msgid "Riesgo Estimado"
-msgstr "Risco Estimado"
+msgstr "Estimated Risk"
 
 #: src/calculadoras/framingham.py:94
 msgid "Nivel de Riesgo"
-msgstr "Nível de Risco"
+msgstr "Risk Level"
 
 #: src/calculadoras/framingham.py:95
 msgid "Pendiente de cálculo"
-msgstr "Pendente de cálculo"
+msgstr "Pending calculation"
 
 #: src/calculadoras/framingham.py:101
 msgid "Calcular Riesgo"
-msgstr "Calcular Risco"
+msgstr "Calculate Risk"
 
 #: src/calculadoras/framingham.py:145
 msgid "Bajo"
-msgstr "Baixo"
+msgstr "Low"
 
 #: src/calculadoras/framingham.py:148
-
 msgid "Intermedio"
-msgstr "Intermédio"
+msgstr "Intermediate"
 
 #: src/calculadoras/framingham.py:151
 msgid "Alto"
-msgstr "Alto"
+msgstr "High"
 
 #: src/calculadoras/framingham.py:164
 msgid "Error en los datos"
-msgstr "Erro nos dados"
+msgstr "Data error"
 
 #: src/calculadoras/wells.py:33
 msgid "Criterios Clínicos"
-msgstr "Critérios Clínicos"
+msgstr "Clinical Criteria"
 
 #: src/calculadoras/wells.py:34
 msgid "Seleccione los hallazgos presentes en el paciente."
-msgstr "Selecionar os achados presentes no paciente."
+msgstr "Select the findings present in the patient."
 
 #: src/calculadoras/wells.py:40
 msgid "Signos clínicos de TVP"
-msgstr "Sinais clínicos de TVP"
+msgstr "Clinical signs of DVT"
 
 #: src/calculadoras/wells.py:41
 msgid "Diagnóstico alternativo menos probable que TEP"
-msgstr "Diagnóstico alternativo menos provável que TEP"
+msgstr "Alternative diagnosis less likely than PE"
 
 #: src/calculadoras/wells.py:42
 msgid "Frecuencia cardíaca > 100 lpm"
-msgstr "Frequência cardíaca > 100 lpm"
+msgstr "Heart rate > 100 bpm"
 
 #: src/calculadoras/wells.py:43
 msgid "Cirugía o inmovilización reciente (4 semanas)"
-msgstr "Cirurgia ou imobilização recente (4 semanas)"
+msgstr "Recent surgery or immobilization (4 weeks)"
 
 #: src/calculadoras/wells.py:44
 msgid "Antecedentes de TVP o TEP"
-msgstr "Antecedentes de TVP ou TEP"
+msgstr "Previous DVT or PE"
 
 #: src/calculadoras/wells.py:45
 msgid "Hemoptisis"
-msgstr "Hemoptise"
+msgstr "Hemoptysis"
 
 #: src/calculadoras/wells.py:46
 msgid "Cáncer (en tratamiento o paliativo)"
-msgstr "Câncer (en tratamento ou paliativo)"
+msgstr "Cancer (active or palliative)"
 
 #: src/calculadoras/wells.py:58
 msgid "Probabilidad Clínica"
-msgstr "Probabilidade Clínica"
+msgstr "Clinical Probability"
 
 #: src/calculadoras/wells.py:65 src/calculadoras/curb65.py:63
 #: src/calculadoras/centor.py:66
 msgid "puntos"
-msgstr "pontos"
+msgstr "points"
 
 #: src/calculadoras/wells.py:72
 msgid "Interpretación (Modelo simplificado)"
-msgstr "Interpretação (Modelo simplificado)"
+msgstr "Interpretation (Simplified model)"
 
 #: src/calculadoras/wells.py:73 src/calculadoras/wells.py:101
 msgid "TEP poco probable"
-msgstr "TEP pouco provável"
+msgstr "PE unlikely"
 
 #: src/calculadoras/wells.py:79 src/calculadoras/centor.py:80
 msgid "Calcular Score"
-msgstr "Calcular Score"
+msgstr "Calculate Score"
 
 #: src/calculadoras/wells.py:98
 msgid "TEP probable"
-msgstr "TEP provável"
+msgstr "PE likely"
 
 #: src/calculadoras/curb65.py:33
 msgid "Criterios CURB-65"
-msgstr "Critérios de CURB-65"
+msgstr "CURB-65 Criteria"
 
 #: src/calculadoras/curb65.py:34
 msgid "Marque los hallazgos presentes para evaluar la severidad."
-msgstr "Marque os achados presentes para avaliar a severidade."
+msgstr "Check findings present to assess severity."
 
 #: src/calculadoras/curb65.py:40
-
 msgid "Confusión"
-msgstr "Confusão"
+msgstr "Confusion"
 
 #: src/calculadoras/curb65.py:40
 msgid "Desorientación en persona, tiempo o espacio"
-msgstr "Desorientado em pessoa, tempo e espaço"
+msgstr "Disorientation to person, time or space"
 
 #: src/calculadoras/curb65.py:41
 msgid "Urea > 7 mmol/L"
-msgstr "Ureia > 7 mmol/L"
-
-#: src/calculadoras/curb65.py:41
-msgid "BUN > 19 mg/dL"
-msgstr "BUN > 19 mg/dL"
+msgstr "Urea > 7 mmol/L"
 
 #: src/calculadoras/curb65.py:42
 msgid "Frecuencia Respiratoria ≥ 30 rpm"
-msgstr "Frequência Respiratória ≥ 30 rpm"
+msgstr "Respiratory Rate ≥ 30 breaths/min"
 
 #: src/calculadoras/curb65.py:43
 msgid "PAS &lt; 90 mmHg o PAD ≤ 60 mmHg"
-msgstr "PAS &lt; 90 mmHg o PAD ≤ 60 mmHg"
+msgstr "SBP &lt; 90 mmHg or DBP ≤ 60 mmHg"
 
 #: src/calculadoras/curb65.py:43
 msgid "Hipotensión arterial"
-msgstr "Hipotensão arterial"
+msgstr "Arterial hypotension"
 
 #: src/calculadoras/curb65.py:44
 msgid "Edad ≥ 65 años"
-msgstr "Idade ≥ 65 anos"
+msgstr "Age ≥ 65 years"
 
 #: src/calculadoras/curb65.py:56
 msgid "Puntaje y Mortalidad"
-msgstr "Pontuação e Mortalidade"
+msgstr "Score and Mortality"
 
 #: src/calculadoras/curb65.py:70
-
 msgid "Recomendación Clínica"
-msgstr "Recomendação Clínica"
+msgstr "Clinical Recommendation"
 
 #: src/calculadoras/curb65.py:71
 msgid "Tratamiento ambulatorio sugerido"
-msgstr "Tratamento ambulatório sugerido"
+msgstr "Outpatient treatment suggested"
 
 #: src/calculadoras/curb65.py:77
 msgid "Calcular CURB-65"
-msgstr "Calcular CURB-65"
+msgstr "Calculate CURB-65"
 
 #: src/calculadoras/curb65.py:96
 msgid "Riesgo bajo: Tratamiento ambulatorio"
-msgstr "Risco baixo: Tratamento ambulatorial"
+msgstr "Low risk: Outpatient treatment"
 
 #: src/calculadoras/curb65.py:99
 msgid "Riesgo moderado: Considerar ingreso hospitalario"
-msgstr "Risco moderado: Considerar internação hospitalar"
+msgstr "Moderate risk: Consider hospital admission"
 
 #: src/calculadoras/curb65.py:102
 msgid "Riesgo alto: Ingreso urgente (valorar UCI)"
-msgstr "Risco alto: Internação urgente (avaliar UTI)"
+msgstr "High risk: Urgent admission (assess ICU)"
 
 #: src/calculadoras/centor.py:33
 msgid "Criterios de Centor"
-msgstr "Critérios de Centor"
+msgstr "Centor Criteria"
 
 #: src/calculadoras/centor.py:34
 msgid "Evaluación de probabilidad de faringitis bacteriana."
-msgstr "Avaliação da probabilidade de faringite bacteriana."
+msgstr "Evaluation of bacterial pharyngitis probability."
 
 #: src/calculadoras/centor.py:41
 msgid "Exudado o inflamación amigdalina"
-msgstr "Exsudato ou inflamação amigdaliana"
+msgstr "Tonsillar exudate or inflammation"
 
 #: src/calculadoras/centor.py:42
 msgid "Adenopatías cervicales anteriores dolorosas"
-msgstr "Adenopatias cervicais anteriores dolorosas"
+msgstr "Tender anterior cervical lymphadenopathy"
 
 #: src/calculadoras/centor.py:43
 msgid "Fiebre (temperatura &gt; 38°C)"
-msgstr "Febre (temperatura &gt; 38°C)"
+msgstr "Fever (temperature &gt; 38°C)"
 
 #: src/calculadoras/centor.py:44
 msgid "Ausencia de tos"
-msgstr "Ausência de tosse"
+msgstr "Absence of cough"
 
 #: src/calculadoras/centor.py:45
 msgid "Edad 3-14 años"
-msgstr "Idade 3-14 anos"
+msgstr "Age 3-14 years"
 
 #: src/calculadoras/centor.py:45
 msgid "Sumar 1 punto"
-msgstr "Somar 1 ponto"
+msgstr "Add 1 point"
 
 #: src/calculadoras/centor.py:46
 msgid "Edad 15-44 años"
-msgstr "Idade 15-44 anos"
+msgstr "Age 15-44 years"
 
 #: src/calculadoras/centor.py:46
 msgid "Sumar 0 puntos"
-msgstr "Somar 0 pontos"
+msgstr "Add 0 points"
 
 #: src/calculadoras/centor.py:47
 msgid "Edad &gt; 45 años"
-msgstr "Idade &gt; 45 anos"
+msgstr "Age &gt; 45 years"
 
 #: src/calculadoras/centor.py:47
 msgid "Restar 1 punto"
-msgstr "Subtrair 1 ponto"
+msgstr "Subtract 1 point"
 
 #: src/calculadoras/centor.py:59
 msgid "Resultado y Conducta"
-msgstr "Resultado e Conduta"
+msgstr "Result and Conduct"
 
 #: src/calculadoras/centor.py:73
 msgid "Sugerencia terapéutica"
-msgstr "Sugestão terapêutica"
+msgstr "Therapeutic suggestion"
 
 #: src/calculadoras/centor.py:74
 msgid "Riesgo muy bajo (2-6%), no requiere estudio ni antibiótico"
-msgstr "Risco muito baixo (2-6%), não requer estudo nem antibiótico"
+msgstr "Very low risk (2-6%), no study or antibiotics required"
 
 #: src/calculadoras/centor.py:107
 msgid "Riesgo bajo: No requiere antibiótico ni cultivo"
-msgstr "Risco baixo: Não requer antibiótico nem cultivo"
+msgstr "Low risk: No antibiotics or culture required"
 
 #: src/calculadoras/centor.py:110
 msgid "Riesgo intermedio: Realizar test rápido o cultivo"
-msgstr "Risco intermédio: Realizar test rápido ou cultivo"
+msgstr "Intermediate risk: Perform rapid test or culture"
 
 #: src/calculadoras/centor.py:113
 msgid "Riesgo alto: Considerar tratamiento empírico"
-msgstr "Risco alto: Considerar tratamento empírico"
-
-#: src/main.py:76
-#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:75
-msgid "translator-credits"
-msgstr "Taylan Branco Meurer"
+msgstr "High risk: Consider empirical treatment"
 
 #: src/main.py:77
-#: build-dir/files/share/clinicalayudante/clinicalayudante/main.py:76
 msgid "Orientadores médicos"
-msgstr "Orientadores médicos"
+msgstr "Medical advisors"
 
 #: src/calculadora.py:39
 msgid "IMC"
-msgstr "IMC"
+msgstr "BMI"
 
 #: src/calculadora.py:39
 msgid "Índice de Masa Corporal"
-msgstr "Índice de Massa Corporal"
+msgstr "Body Mass Index"
 
 #: src/calculadora.py:40
 msgid "PAM"
-msgstr "PAM"
+msgstr "MAP"
 
 #: src/calculadora.py:40
 msgid "Presión Arterial Media"
-msgstr "Presão Arterial Média"
+msgstr "Mean Arterial Pressure"
 
 #: src/calculadora.py:41
 msgid "TFG"
-msgstr "TFG"
+msgstr "eGFR"
 
 #: src/calculadora.py:41
 msgid "Tasa de Filtración Glomerular"
-msgstr "Taxa de Filtração Glomerular"
+msgstr "Glomerular Filtration Rate"
 
 #: src/calculadora.py:42
 msgid "GAP"
@@ -526,7 +496,7 @@ msgstr "GAP"
 
 #: src/calculadora.py:42
 msgid "Anión GAP"
-msgstr "Ânion GAP"
+msgstr "Anion GAP"
 
 #: src/calculadora.py:43
 msgid "Framingham"
@@ -534,15 +504,15 @@ msgstr "Framingham"
 
 #: src/calculadora.py:43
 msgid "Score de Framingham"
-msgstr "Score de Framingham"
+msgstr "Framingham Score"
 
 #: src/calculadora.py:44
 msgid "Score de Wells"
-msgstr "Score de Wells"
+msgstr "Wells Score"
 
 #: src/calculadora.py:44
 msgid "Criterios de Wells simplificados"
-msgstr "Critérios de Wells simplificados"
+msgstr "Simplified Wells criteria"
 
 #: src/calculadora.py:45
 msgid "CURB-65"
@@ -550,165 +520,136 @@ msgstr "CURB-65"
 
 #: src/calculadora.py:45
 msgid "Criterios para severidad en neumonía"
-msgstr "Critérios para severidade para pneumonia"
+msgstr "Criteria for pneumonia severity"
 
 #: src/calculadora.py:46
 msgid "Escala de Centor"
-msgstr "Escala de Centor"
+msgstr "Centor Score"
 
 #: src/calculadora.py:46
 msgid "Evaluar la probabilidad de faringitis estreptocócica"
-msgstr "Avaliar a probabilidade de faringite estreptocócica"
+msgstr "Evaluate the probability of streptococcal pharyngitis"
 
 #: src/preferences.py:24
 msgid "Diccionario Clínico"
-msgstr "Dicionário Clínico"
+msgstr "Clinical Dictionary"
 
 #: src/preferences.py:32
-
 msgid "Buscar enfermedad, síntoma..."
-msgstr "Buscar enfermedade, sintoma ..."
+msgstr "Search disease, symptom..."
 
 #: src/preferences.py:46
 msgid "No se encontraron resultados"
-msgstr "Não se encontraram resultados"
+msgstr "No results found"
 
 #: src/preferences.py:145 src/window.ui:170
-
 msgid "Enfermedades"
-msgstr "Enfermedades"
+msgstr "Diseases"
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/preferences.py:33
 msgid "Buscar enfermedad, síndrome o síntoma ..."
-msgstr "Buscar enfermedade, síndrome ou sintoma ..."
+msgstr "Search disease, syndrome or symptom ..."
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/preferences.py:130
 msgid "Sin descripción"
-msgstr "Sem descrição"
-
-#: src/gtk/help-overlay.ui:11
-msgctxt "shortcut window"
-msgid "General"
-msgstr "Geral"
-
-#: src/gtk/help-overlay.ui:14
-msgctxt "shortcut window"
-msgid "Show Shortcuts"
-msgstr "Mostrar atalhos"
-
-#: src/gtk/help-overlay.ui:20
-msgctxt "shortcut window"
-msgid "Quit"
-msgstr "Sair"
+msgstr "No description"
 
 #: src/enfermedad_window.ui:39
 msgid "Signos o síntomas posibles"
-msgstr "Signos ou síntomas possíveis"
+msgstr "Possible signs or symptoms"
 
 #: src/enfermedad_window.ui:60
 msgid "Datos y preguntas relevantes"
-msgstr "Dados e perguntas relevantes"
+msgstr "Relevant data and questions"
 
 #: src/enfermedad_window.ui:95
 msgid "Anamnesis"
-msgstr "Anamnese"
+msgstr "Anamnesis"
 
 #: src/enfermedad_window.ui:132
 msgid "Exploración física"
-msgstr "Exploração física"
+msgstr "Physical examination"
 
 #: src/enfermedad_window.ui:167
 msgid "Estudios"
-msgstr "Estudos"
+msgstr "Studies"
 
 #: src/enfermedad_window.ui:202
 msgid "Tratamiento"
-msgstr "Tratamento"
+msgstr "Treatment"
 
 #: src/enfermedad_window.ui:218
 msgid "Enfermedad"
-msgstr "Enfermedade"
+msgstr "Disease"
 
 #: src/calculadora.ui:8
 msgid "Calculadoras Clínicas"
-msgstr "Calculadoras Clínicas"
+msgstr "Clinical Calculators"
 
 #: src/calculadora.ui:16 src/calculadora.ui:24 src/window.ui:174
 msgid "Calculadoras"
-msgstr "Calculadoras"
+msgstr "Calculators"
 
 #: src/calculadora.ui:39
 msgid "Buscar calculadora..."
-msgstr "Buscar calculadora..."
+msgstr "Search calculator..."
 
 #: src/calculadora.ui:65
 msgid "Fórmula"
-msgstr "Fórmula"
+msgstr "Formula"
 
 #: src/calculadora.ui:80
 msgid "Bienvenido"
-msgstr "Bem-vindo"
+msgstr "Welcome"
 
 #: src/calculadora.ui:81
 msgid "Seleccione una calculadora en el panel izquierdo."
-msgstr "Selecionar uma calculadora no painel esquerdo"
+msgstr "Select a calculator from the left panel."
 
 #: src/window.ui:28
 msgid "Síntomas y signos"
-msgstr "Sintomas e sinais."
+msgstr "Symptoms and signs"
 
 #: src/window.ui:29
 msgid "Lista"
-msgstr "Lista"
+msgstr "List"
 
 #: src/window.ui:41
 msgid "Investigar"
-msgstr "Investigar"
+msgstr "Investigate"
 
 #: src/window.ui:46
 msgid "Investigar las enfermedades posibles según los síntomas o signos"
-msgstr "Investigar as enfermedades possíveis segundo os sintomas ou sinais"
+msgstr "Investigate possible diseases based on symptoms or signs"
 
 #: src/window.ui:65
 msgid "Remover último síntoma o signo"
-msgstr "Agregar sintomas ou sinais."
+msgstr "Remove last symptom or sign"
 
 #: src/window.ui:75
 msgid "Limpiar todo"
-msgstr "Limpar tudo"
+msgstr "Clear all"
 
 #: src/window.ui:77
 msgid "Limpiar todos los síntomas/signos"
-msgstr "Limpar todos os sintomas/sinais"
+msgstr "Clear all symptoms/signs"
 
 #: src/window.ui:95
 msgid "Posibles enfermedades"
-msgstr "Possíveis enfermedades"
+msgstr "Possible diseases"
 
 #: src/window.ui:136 src/window.ui:138
 msgid "Síntoma o signo"
-msgstr "Agregar sitomas ou sinais."
-
-#: src/window.ui:139
-msgctxt "Síntoma ou signo"
-msgid "Síntoma o signo"
-msgstr "Sintoma ou sinal."
+msgstr "Symptom or sign"
 
 #: src/window.ui:146
 msgid "Agregar síntoma o signo en la lista abajo"
-msgstr "Agregar sintoma ou sinal na lista abaixo"
+msgstr "Add symptom or sign to the list below"
 
 #: src/window.ui:178
 msgid "Atajos de teclado"
-msgstr "Atalhos de teclado"
+msgstr "Keyboard shortcuts"
 
 #: src/window.ui:182
-
 msgid "Sobre ClinicalAyudante"
-msgstr "Sobre ClinicalAyudante"
-
-#~ msgid "Preferences"
-#~ msgstr "Preferências"
-
-#~ msgid "Keyboard Shortcuts"
-#~ msgstr "Atalhos de teclado"
+msgstr "About ClinicalAyudante"

@@ -51,6 +51,7 @@ class ClinicalayudanteApplication(Adw.Application):
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
+        self.create_action('calculadoras', self.on_calculadora_action)
 
     def do_activate(self):
         """Called when the application is activated.
@@ -86,6 +87,20 @@ class ClinicalayudanteApplication(Adw.Application):
     def on_prefs_closed(self, window):
         self.prefs_win = None
         return False  # Permite que la ventana se cierre
+
+
+    def on_calculadora_action(self, widget, _):
+        if not hasattr(self, 'calc_win') or self.calc_win is None:
+            from .calculadora import CalculadoraWindow
+            self.calc_win = CalculadoraWindow()
+            self.calc_win.connect("close-request", self.on_calc_closed)
+
+        self.calc_win.present()
+
+
+    def on_calc_closed(self, window):
+        self.calc_win = None
+        return False
 
 
     def create_action(self, name, callback, shortcuts=None):
