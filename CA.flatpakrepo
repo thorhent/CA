@@ -1,7 +1,5 @@
-[Flatpak Ref]
-Title=CA
+[Flatpak Repo]
+Title=ClinicalAyudante
 Name=io.github.thorhent.CA
-Branch=stable
-Runtime=org.gnome.Platform/x86_64/49
-Sdk=org.gnome.Sdk/x86_64/49
 Url=https://thorhent.github.io/CA/repo
+Homepage=https://thorhent.github.io/CA/
