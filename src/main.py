@@ -69,7 +69,7 @@ class ClinicalayudanteApplication(Adw.Application):
         about = Adw.AboutDialog(application_name='Clinical Ayudante',
                                 application_icon='io.github.thorhent.CA',
                                 developer_name='Taylan Branco Meurer',
-                                version='1.2.26',
+                                version='1.3.26',
                                 developers=['Taylan Branco Meurer'],
                                 copyright='© 2026 Taylan Branco Meurer')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
