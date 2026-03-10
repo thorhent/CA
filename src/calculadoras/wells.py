@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, Adw
 import gettext
+import locale
 
 _ = gettext.gettext
 
@@ -91,7 +92,8 @@ class CalculadoraWells(Gtk.Box):
             if fila.get_active():
                 total += fila.puntos
 
-        self.label_puntos.set_label(f"{total:g}".replace('.', ','))
+        total_str = locale.format_string("%.1f", total)
+        self.label_puntos.set_label(total_str)
 
         # Interpretación (Criterios de Wells simplificados/dicotómicos)
         if total > 4.0:

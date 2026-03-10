@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, Adw
 import gettext
+import locale
 
 _ = gettext.gettext
 
@@ -87,8 +88,8 @@ class CalculadoraPAM(Gtk.Box):
             # Fórmula Médica: PAM = (PAS + 2*PAD) / 3
             pam = (pas + (2 * pad)) / 3
 
-            # Formateo del resultado para mostrar coma al usuario
-            self.label_pam.set_label(f"{pam:.1f}".replace('.', ','))
+            pam = locale.format_string("%.1f", pam)
+            self.label_pam.set_label(pam)
 
         except (ValueError, ZeroDivisionError):
             self.label_pam.set_label("--")

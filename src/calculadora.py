@@ -23,6 +23,7 @@ class CalculadoraWindow(Adw.ApplicationWindow):
         from .calculadoras.wells import CalculadoraWells
         from .calculadoras.curb65 import CalculadoraCurb65
         from .calculadoras.centor import CalculadoraCentor
+        from .calculadoras.gold import CalculadoraGold
 
 
         icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
@@ -44,6 +45,7 @@ class CalculadoraWindow(Adw.ApplicationWindow):
             ("wells", _("Score de Wells"), _("Criterios de Wells simplificados"), "no-wheelchair-symbolic", CalculadoraWells() ),
             ("curb65", _("CURB-65"), _("Criterios para severidad en neumonía"), "compass-wind-symbolic", CalculadoraCurb65() ),
             ("centor", _("Escala de Centor"), _("Evaluar la probabilidad de faringitis estreptocócica"), "face-shutmouth-symbolic", CalculadoraCentor() ),
+            ("gold", _("GOLD"), _("Clasificación GOLD para EPOC"), "person-talking-symbolic", CalculadoraGold() ),
         ])
         self.listaCalculadoras.connect("row-selected", self._al_seleccionar)
 

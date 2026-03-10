@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, Adw
 import gettext
+import locale
 
 _ = gettext.gettext
 
@@ -91,8 +92,8 @@ class CalculadoraGap(Gtk.Box):
             # Fórmula: Anion Gap = Na - (Cl + HCO3)
             gap = na - (cl + hco3)
 
-            # Mostrar resultado con formato local
-            self.label_gap.set_label(f"{gap:.1f}".replace('.', ','))
+            gap = locale.format_string("%.1f", gap)
+            self.label_gap.set_label(gap)
 
         except (ValueError, ZeroDivisionError):
             self.label_gap.set_label("--")
