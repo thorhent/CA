@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, Adw
 import gettext
+import locale
 
 _ = gettext.gettext
 
@@ -102,7 +103,8 @@ class CalculadoraCKDEPI(Gtk.Box):
             egfr = 142 * e_crea_min * e_crea_max * e_edad * c_sexo
 
             # Mostrar resultado con formato local
-            self.label_egfr.set_label(f"{egfr:.0f}")
+            egfr_str = locale.format_string("%.0f", egfr)
+            self.label_egfr.set_label(egfr_str)
 
         except (ValueError, ZeroDivisionError):
             self.label_egfr.set_label("--")

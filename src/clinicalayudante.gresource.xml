@@ -18,5 +18,6 @@
     <file alias="icons/no-wheelchair-symbolic.svg">../data/icons/hicolor/symbolic/apps/no-wheelchair-symbolic.svg</file>
     <file alias="icons/compass-wind-symbolic.svg">../data/icons/hicolor/symbolic/apps/compass-wind-symbolic.svg</file>
     <file alias="icons/face-shutmouth-symbolic.svg">../data/icons/hicolor/symbolic/apps/face-shutmouth-symbolic.svg</file>
+    <file alias="icons/person-talking-symbolic.svg">../data/icons/hicolor/symbolic/apps/person-talking-symbolic.svg</file>
   </gresource>
 </gresources>

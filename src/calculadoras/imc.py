@@ -3,6 +3,7 @@
 
 from gi.repository import Gtk, Adw
 import gettext
+import locale
 
 _ = gettext.gettext
 
@@ -92,8 +93,9 @@ class CalculadoraIMC(Gtk.Box):
             # Cálculo: IMC = Peso / Altura²
             imc = peso / (altura ** 2)
 
-            # Formateo del resultado para el usuario
-            self.label_imc.set_label(f"{imc:.1f}".replace('.', ','))
+            imc_str = locale.format_string("%.1f", imc)
+
+            self.label_imc.set_label(imc_str)
 
             # Clasificación diagnóstica básica
             if imc < 18.5:
