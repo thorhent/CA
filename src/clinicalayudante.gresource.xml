@@ -19,5 +19,7 @@
     <file alias="icons/compass-wind-symbolic.svg">../data/icons/hicolor/symbolic/apps/compass-wind-symbolic.svg</file>
     <file alias="icons/face-shutmouth-symbolic.svg">../data/icons/hicolor/symbolic/apps/face-shutmouth-symbolic.svg</file>
     <file alias="icons/person-talking-symbolic.svg">../data/icons/hicolor/symbolic/apps/person-talking-symbolic.svg</file>
+    <file alias="icons/path-erase-split2-symbolic.svg">../data/icons/hicolor/symbolic/apps/path-erase-split2-symbolic.svg</file>
+    <file alias="icons/sad-computer-symbolic.svg">../data/icons/hicolor/symbolic/apps/sad-computer-symbolic.svg</file>
   </gresource>
 </gresources>
