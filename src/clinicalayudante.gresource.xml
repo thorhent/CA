@@ -21,5 +21,7 @@
     <file alias="icons/person-talking-symbolic.svg">../data/icons/hicolor/symbolic/apps/person-talking-symbolic.svg</file>
     <file alias="icons/path-erase-split2-symbolic.svg">../data/icons/hicolor/symbolic/apps/path-erase-split2-symbolic.svg</file>
     <file alias="icons/sad-computer-symbolic.svg">../data/icons/hicolor/symbolic/apps/sad-computer-symbolic.svg</file>
+    <file alias="icons/blur-alt-symbolic.svg">../data/icons/hicolor/symbolic/apps/blur-alt-symbolic.svg</file>
+
   </gresource>
 </gresources>

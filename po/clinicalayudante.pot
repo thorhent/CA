@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-11 16:27-0300\n"
+"POT-Creation-Date: 2026-03-13 19:44-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,6 +119,87 @@ msgstr ""
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/centor.py:113
 #: src/calculadoras/centor.py:113
 msgid "Riesgo alto: Considerar tratamiento empírico"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:24
+#: src/calculadoras/chadsvasc.py:24
+msgid "Factores de Riesgo"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:29
+#: src/calculadoras/chadsvasc.py:29
+msgid "Insuficiencia Cardíaca Congestiva"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:30
+#: src/calculadoras/chadsvasc.py:30
+msgid "Hipertensión"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:31
+#: src/calculadoras/chadsvasc.py:31
+msgid "Edad ≥ 75 años"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:31
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:33
+#: src/calculadoras/chadsvasc.py:31 src/calculadoras/chadsvasc.py:33
+msgid "Suma 2 puntos"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:32
+#: src/calculadoras/chadsvasc.py:32
+msgid "Diabetes Mellitus"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:33
+#: src/calculadoras/chadsvasc.py:33
+msgid "ACV / AIT / Tromboembolismo previo"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:34
+#: src/calculadoras/chadsvasc.py:34
+msgid "Enfermedad Vascular (IAM, EVP o Placa aórtica)"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:35
+#: src/calculadoras/chadsvasc.py:35
+msgid "Edad 65-74 años"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:36
+#: src/calculadoras/chadsvasc.py:36
+msgid "Categoría de Sexo (Femenino)"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:43
+#: src/calculadoras/chadsvasc.py:43
+msgid "Puntuación Total"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:49
+#: src/calculadoras/chadsvasc.py:49
+msgid "Recomendación"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:52
+#: src/calculadoras/chadsvasc.py:52
+msgid "Calcular"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:72
+#: src/calculadoras/chadsvasc.py:72
+msgid "No requiere anticoagulación"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:74
+#: src/calculadoras/chadsvasc.py:74
+msgid "Considerar anticoagulación (según sexo)"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/chadsvasc.py:76
+#: src/calculadoras/chadsvasc.py:76
+msgid "Anticoagulación recomendada"
 msgstr ""
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/curb65.py:33
@@ -440,7 +521,7 @@ msgid "Clasificar GOLD"
 msgstr ""
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/gold.py:119
-#: src/calculadoras/gold.py:119
+#: src/calculadoras/gold.py:119 src/calculadoras/light.py:117
 msgid "Error"
 msgstr ""
 
@@ -471,7 +552,7 @@ msgid "Clasificación Nutricional"
 msgstr ""
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/imc.py:59
-#: src/calculadoras/imc.py:59
+#: src/calculadoras/imc.py:59 src/calculadoras/light.py:67
 msgid "Esperando datos..."
 msgstr ""
 
@@ -521,6 +602,7 @@ msgid "Presión Diastólica (PAD)"
 msgstr ""
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/pam.py:45
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:47
 #: src/calculadoras/pam.py:45 src/calculadoras/qsofa.py:47
 msgid "Resultado"
 msgstr ""
@@ -533,6 +615,62 @@ msgstr ""
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/pam.py:66
 #: src/calculadoras/pam.py:66
 msgid "Calcular PAM"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:32
+#: src/calculadoras/qsofa.py:32
+msgid "Criterios qSOFA"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:33
+#: src/calculadoras/qsofa.py:33
+msgid "Evaluación rápida de disfunción de órganos."
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:38
+#: src/calculadoras/qsofa.py:38
+msgid "Alteración del estado mental"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:38
+#: src/calculadoras/qsofa.py:38
+msgid "Glasgow &lt; 15"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:39
+#: src/calculadoras/qsofa.py:39
+msgid "Hipotensión sistólica"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:39
+#: src/calculadoras/qsofa.py:39
+msgid "PAS ≤ 100 mmHg"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:40
+#: src/calculadoras/qsofa.py:40
+msgid "Taquipnea"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:40
+#: src/calculadoras/qsofa.py:40
+msgid "FR ≥ 22 rpm"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:54
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:78
+#: src/calculadoras/qsofa.py:54 src/calculadoras/qsofa.py:78
+msgid "Bajo riesgo"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:61
+#: src/calculadoras/qsofa.py:61
+msgid "Evaluar qSOFA"
+msgstr ""
+
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/qsofa.py:75
+#: src/calculadoras/qsofa.py:75
+msgid "Alto riesgo de mortalidad o estancia prolongada en UCI"
 msgstr ""
 
 #: build-dir/files/share/clinicalayudante/clinicalayudante/calculadoras/tfg.py:30
@@ -711,218 +849,178 @@ msgstr ""
 msgid "Enfermedades"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:40
-#: src/calculadora.py:42
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:42
+#: src/calculadora.py:43
 msgid "IMC"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:40
-#: src/calculadora.py:42
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:42
+#: src/calculadora.py:43
 msgid "Índice de Masa Corporal"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:41
-#: src/calculadora.py:43
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:43
+#: src/calculadora.py:44
 msgid "PAM"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:41
-#: src/calculadora.py:43
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:43
+#: src/calculadora.py:44
 msgid "Presión Arterial Media"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:42
-#: src/calculadora.py:44
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:44
+#: src/calculadora.py:45
 msgid "TFG"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:42
-#: src/calculadora.py:44
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:44
+#: src/calculadora.py:45
 msgid "Tasa de Filtración Glomerular"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:43
-#: src/calculadora.py:45
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:45
+#: src/calculadora.py:46
 msgid "GAP"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:43
-#: src/calculadora.py:45
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:45
+#: src/calculadora.py:46
 msgid "Anión GAP"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:44
-#: src/calculadora.py:46
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:46
+#: src/calculadora.py:47
 msgid "Framingham"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:44
-#: src/calculadora.py:46
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:46
+#: src/calculadora.py:47
 msgid "Score de Framingham"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:45
-#: src/calculadora.py:47
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:47
+#: src/calculadora.py:48
 msgid "Score de Wells"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:45
-#: src/calculadora.py:47
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:47
+#: src/calculadora.py:48
 msgid "Criterios de Wells simplificados"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:46
-#: src/calculadora.py:48
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:48
+#: src/calculadora.py:49
 msgid "CURB-65"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:46
-#: src/calculadora.py:48
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:48
+#: src/calculadora.py:49
 msgid "Criterios para severidad en neumonía"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:47
-#: src/calculadora.py:49
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:49
+#: src/calculadora.py:50
 msgid "Escala de Centor"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:47
-#: src/calculadora.py:49
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:49
+#: src/calculadora.py:50
 msgid "Evaluar la probabilidad de faringitis estreptocócica"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:48
-#: src/calculadora.py:50
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:50
+#: src/calculadora.py:51
 msgid "GOLD"
 msgstr ""
 
-#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:48
-#: src/calculadora.py:50
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:50
+#: src/calculadora.py:51
 msgid "Clasificación GOLD para EPOC"
 msgstr ""
 
-#: src/calculadoras/chadsvasc.py:24
-msgid "Factores de Riesgo"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:29
-msgid "Insuficiencia Cardíaca Congestiva"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:30
-msgid "Hipertensión"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:31
-msgid "Edad ≥ 75 años"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:31 src/calculadoras/chadsvasc.py:33
-msgid "Suma 2 puntos"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:32
-msgid "Diabetes Mellitus"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:33
-msgid "ACV / AIT / Tromboembolismo previo"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:34
-msgid "Enfermedad Vascular (IAM, EVP o Placa aórtica)"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:35
-msgid "Edad 65-74 años"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:36
-msgid "Categoría de Sexo (Femenino)"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:43
-msgid "Puntuación Total"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:49
-msgid "Recomendación"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:52
-msgid "Calcular"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:72
-msgid "No requiere anticoagulación"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:74
-msgid "Considerar anticoagulación (según sexo)"
-msgstr ""
-
-#: src/calculadoras/chadsvasc.py:76
-msgid "Anticoagulación recomendada"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:32
-msgid "Criterios qSOFA"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:33
-msgid "Evaluación rápida de disfunción de órganos."
-msgstr ""
-
-#: src/calculadoras/qsofa.py:38
-msgid "Alteración del estado mental"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:38
-msgid "Glasgow &lt; 15"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:39
-msgid "Hipotensión sistólica"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:39
-msgid "PAS ≤ 100 mmHg"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:40
-msgid "Taquipnea"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:40
-msgid "FR ≥ 22 rpm"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:54 src/calculadoras/qsofa.py:78
-msgid "Bajo riesgo"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:61
-msgid "Evaluar qSOFA"
-msgstr ""
-
-#: src/calculadoras/qsofa.py:75
-msgid "Alto riesgo de mortalidad o estancia prolongada en UCI"
-msgstr ""
-
-#: src/calculadora.py:51
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:51
+#: src/calculadora.py:52
 msgid "qSOFA"
 msgstr ""
 
-#: src/calculadora.py:51
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:51
+#: src/calculadora.py:52
 msgid "QuickSofa - evaluación de sepsis"
 msgstr ""
 
-#: src/calculadora.py:52
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:52
+#: src/calculadora.py:53
 msgid "CHA2DS2-VASc"
 msgstr ""
 
-#: src/calculadora.py:52
+#: build-dir/files/share/clinicalayudante/clinicalayudante/calculadora.py:52
+#: src/calculadora.py:53
 msgid "Escala para riesgo de ACV"
+msgstr ""
+
+#: src/calculadoras/light.py:34
+msgid "1. Proteínas"
+msgstr ""
+
+#: src/calculadoras/light.py:35
+msgid "Relación de proteínas entre líquido pleural y suero."
+msgstr ""
+
+#: src/calculadoras/light.py:39
+msgid "Proteínas en Líquido (g/dL)"
+msgstr ""
+
+#: src/calculadoras/light.py:40
+msgid "Proteínas en Suero (g/dL)"
+msgstr ""
+
+#: src/calculadoras/light.py:47
+msgid "2. LDH (Lactato Deshidrogenasa)"
+msgstr ""
+
+#: src/calculadoras/light.py:48
+msgid "Valores de LDH y límite superior normal (LSN) del suero."
+msgstr ""
+
+#: src/calculadoras/light.py:52
+msgid "LDH en Líquido (U/L)"
+msgstr ""
+
+#: src/calculadoras/light.py:53
+msgid "LDH en Suero (U/L)"
+msgstr ""
+
+#: src/calculadoras/light.py:54
+msgid "LSN LDH Suero (U/L)"
+msgstr ""
+
+#: src/calculadoras/light.py:61
+msgid "Interpretación"
+msgstr ""
+
+#: src/calculadoras/light.py:76
+msgid "Evaluar Criterios"
+msgstr ""
+
+#: src/calculadoras/light.py:103
+msgid "EXUDADO"
+msgstr ""
+
+#: src/calculadoras/light.py:107
+msgid "TRASUDADO"
+msgstr ""
+
+#: src/calculadoras/light.py:118
+msgid "Verifique los valores de entrada"
+msgstr ""
+
+#: src/calculadora.py:54
+msgid "Criterios de Light"
+msgstr ""
+
+#: src/calculadora.py:54
+msgid "Diferenciar entre trasudado y exudado"
 msgstr ""
 
 #: src/calculadora.ui:8

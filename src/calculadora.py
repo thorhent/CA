@@ -26,6 +26,7 @@ class CalculadoraWindow(Adw.ApplicationWindow):
         from .calculadoras.gold import CalculadoraGold
         from .calculadoras.chadsvasc import CalculadoraChadsvasc
         from .calculadoras.qsofa import CalculadoraQsofa
+        from .calculadoras.light import CalculadoraLight
 
 
         icon_theme = Gtk.IconTheme.get_for_display(Gdk.Display.get_default())
@@ -50,6 +51,7 @@ class CalculadoraWindow(Adw.ApplicationWindow):
             ("gold", _("GOLD"), _("Clasificación GOLD para EPOC"), "person-talking-symbolic", CalculadoraGold() ),
             ("qsofa", _("qSOFA"), _("QuickSofa - evaluación de sepsis"), "sad-computer-symbolic", CalculadoraQsofa() ),
             ("chadsvasc", _("CHA2DS2-VASc"), _("Escala para riesgo de ACV"), "path-erase-split2-symbolic", CalculadoraChadsvasc() ),
+            ("light", _("Criterios de Light"), _("Diferenciar entre trasudado y exudado"), "blur-alt-symbolic", CalculadoraLight() ),
         ])
         self.listaCalculadoras.connect("row-selected", self._al_seleccionar)
 
